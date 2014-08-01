@@ -18,6 +18,7 @@
 }
 
 .mgwt-SearchBox-round {
+<<<<<<< HEAD
   background-clip: padding-box;
   background-image: searchImage;
   background-repeat: no-repeat;
@@ -25,7 +26,7 @@
   height: 24px;
   display: block;
   position: relative;
-  top: 10px;
+  top: 7px;
   margin: 0px;
   padding: 0px;
   margin-right: 10px;
@@ -87,7 +88,7 @@
 
 .mgwt-SearchBox-clear {
   position: absolute;
-  top: -8.5px;
+  top: -4.5px;
   right: 10px;
   width: 40px;
   height: 40px;

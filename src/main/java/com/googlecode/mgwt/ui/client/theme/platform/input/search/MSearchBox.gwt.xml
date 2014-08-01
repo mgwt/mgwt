@@ -13,35 +13,13 @@ under the License.
 -->
 
 <module>
-  <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxIPadAppearance">
+  <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxIOSAppearance">
     <when-type-is class="com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAppearance" />
-      <any>
-	    <when-property-is name="mgwt.os" value="ipad" />
-        <when-property-is name="mgwt.os" value="ipad_retina" />
-        <when-property-is name="mgwt.os" value="desktop" />
-     </any>
-  </replace-with>
-  
-  <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxIPhoneAppearance">
-    <when-type-is class="com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAppearance" />
-      <any>
-	    <when-property-is name="mgwt.os" value="iphone" />
-        <when-property-is name="mgwt.os" value="retina" />
-     </any>
+    <when-property-is name="mgwt.os" value="ios" />
   </replace-with>
 
   <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxAndroidAppearance">
     <when-type-is class="com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAppearance" />
-      <any>
-        <when-property-is name="mgwt.os" value="android" />
-        <when-property-is name="mgwt.os" value="android_tablet" />
-     </any>
-  </replace-with>
-
-  <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxBlackberryAppearance">
-    <when-type-is class="com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAppearance" />
-	  <any>
-        <when-property-is name="mgwt.os" value="blackberry" />
-      </any>
+    <when-property-is name="mgwt.os" value="android" />
   </replace-with>
 </module>
