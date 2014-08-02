@@ -42,26 +42,8 @@ import com.googlecode.mgwt.ui.client.widget.button.ButtonBase;
 /**
  * A search widget
  *
- * <h2>Styling</h2> The DOM structure looks like:
- *
- * <pre>
- * &lt;div class="mgwt-SearchBox">
- * 	&lt;form class="mgwt-SearchBox-round">
- * 		&lt;input class="mgwt-SearchBox-input" />
- * 	&lt;/form>
- * 	&lt;div class="mgwt-SearchBox-clear"/>
- * &lt;/div>
- * </pre>
- *
- *
- *
- * If the clear element is touched its class is changed to
- * .mgwt-SearchBox-clear-active
- *
  * @author Daniel Kurka Date: 30.05.2010
- *
  */
-
 public class MSearchBox extends Composite implements
     HasText, HasName, HasValue<String>, HasPlaceHolder {
 

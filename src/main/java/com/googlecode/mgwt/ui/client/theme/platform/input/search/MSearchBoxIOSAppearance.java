@@ -15,8 +15,7 @@ package com.googlecode.mgwt.ui.client.theme.platform.input.search;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.DataResource;
-
+import com.google.gwt.resources.client.ImageResource;
 import com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAbstractAppearance;
 
 public class MSearchBoxIOSAppearance extends MSearchBoxAbstractAppearance {
@@ -26,20 +25,15 @@ public class MSearchBoxIOSAppearance extends MSearchBoxAbstractAppearance {
   }
 
   interface Resources extends ClientBundle {
-
     Resources INSTANCE = GWT.create(Resources.class);
-
     @Source({"com/googlecode/mgwt/ui/client/widget/input/search/searchbox.css", "searchbox-ios.css"})
     MSearchBoxCss css();
 
-    @Source("glass.png")
-    DataResource searchSearchImage();
+    @Source("com/googlecode/mgwt/ui/client/widget/input/search/search_mdpi.png")
+    ImageResource searchSearchImage();
 
-    @Source("search_clear.png")
-    DataResource searchClearImage();
-
-    @Source("search_clear_touched.png")
-    DataResource searchClearTouchedImage();
+    @Source("com/googlecode/mgwt/ui/client/widget/input/search/clear_mdpi.png")
+    ImageResource searchClearImage();
   }
 
   @Override

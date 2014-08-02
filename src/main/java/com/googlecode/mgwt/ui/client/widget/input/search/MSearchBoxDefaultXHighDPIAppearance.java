@@ -11,14 +11,13 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.googlecode.mgwt.ui.client.theme.platform.input.search;
+package com.googlecode.mgwt.ui.client.widget.input.search;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.ImageResource;
-import com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAbstractAppearance;
 
-public class MSearchBoxAndroidAppearance extends MSearchBoxAbstractAppearance {
+public class MSearchBoxDefaultXHighDPIAppearance extends MSearchBoxAbstractAppearance {
 
   static {
     Resources.INSTANCE.css().ensureInjected();
@@ -28,13 +27,13 @@ public class MSearchBoxAndroidAppearance extends MSearchBoxAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/search/searchbox.css", "searchbox-android.css"})
+    @Source({"searchbox.css"})
     MSearchBoxCss css();
 
-    @Source("com/googlecode/mgwt/ui/client/widget/input/search/search_mdpi.png")
+    @Source("search_xhdpi.png")
     ImageResource searchSearchImage();
 
-    @Source("com/googlecode/mgwt/ui/client/widget/input/search/clear_mdpi.png")
+    @Source("clear_xhdpi.png")
     ImageResource searchClearImage();
   }
 

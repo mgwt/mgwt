@@ -38,3 +38,38 @@
   font-size: 16px;
   color: #64636B;
 }
+
+.mgwt-SearchBox-icon {
+  top: 9px;
+  left: 8px;
+}
+
+
+@if mgwt.density high {
+  .mgwt-SearchBox-icon {
+    -webkit-mask-size: 17px 17px;
+  }
+}
+
+@if mgwt.density xhigh {
+  .mgwt-SearchBox-icon {
+    -webkit-mask-size: 12px 12px;
+  }
+}
+
+.mgwt-SearchBox-clear {
+  top: 1px;
+  right: 0px;
+}
+
+@if mgwt.density high {
+  .mgwt-SearchBox-clear {
+    -webkit-mask-size: 19px 19px;
+  }
+}
+
+@if mgwt.density xhigh {
+  .mgwt-SearchBox-clear {
+    -webkit-mask-size: 14px 14px;
+  }
+}
