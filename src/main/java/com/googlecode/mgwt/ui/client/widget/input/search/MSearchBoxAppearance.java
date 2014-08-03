@@ -26,12 +26,15 @@ public interface MSearchBoxAppearance extends ButtonBaseAppearance {
 
     @ClassName("mgwt-SearchBox-input")
     public String input();
+
+    @ClassName("mgwt-SearchBox-icon")
+    public String searchIcon();
   }
-  
+
   MSearchBoxCss css();
-  
+
   UiBinder<Widget, MSearchBox> uiBinderBox();
-  
+
   @Override
   UiBinder<Element, MSearchBoxButton> uiBinder();
 }

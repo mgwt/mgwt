@@ -1,25 +1,23 @@
 /*
  * Copyright 2014 Daniel Kurka
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software distributed under the License
  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.googlecode.mgwt.ui.client.theme.platform.input.search;
+package com.googlecode.mgwt.ui.client.widget.input.search;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.DataResource;
+import com.google.gwt.resources.client.ImageResource;
 
-import com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAbstractAppearance;
-
-public class MSearchBoxIPhoneAppearance extends MSearchBoxAbstractAppearance {
+public class MSearchBoxDefaultHighDPIAppearance extends MSearchBoxAbstractAppearance {
 
   static {
     Resources.INSTANCE.css().ensureInjected();
@@ -29,17 +27,14 @@ public class MSearchBoxIPhoneAppearance extends MSearchBoxAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"searchbox-base.css", "searchbox-iphone.css"})
+    @Source({"searchbox.css"})
     MSearchBoxCss css();
 
-    @Source("glass.png")
-    DataResource searchSearchImage();
+    @Source("search_hdpi.png")
+    ImageResource searchSearchImage();
 
-    @Source("search_clear.png")
-    DataResource searchClearImage();
-
-    @Source("search_clear_touched.png")
-    DataResource searchClearTouchedImage();
+    @Source("clear_hdpi.png")
+    ImageResource searchClearImage();
   }
 
   @Override

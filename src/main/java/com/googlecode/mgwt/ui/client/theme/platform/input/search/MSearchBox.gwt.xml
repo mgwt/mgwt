@@ -13,35 +13,27 @@ under the License.
 -->
 
 <module>
-  <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxIPadAppearance">
+  <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxIOSAppearance">
     <when-type-is class="com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAppearance" />
-      <any>
-	    <when-property-is name="mgwt.os" value="ipad" />
-        <when-property-is name="mgwt.os" value="ipad_retina" />
-        <when-property-is name="mgwt.os" value="desktop" />
-     </any>
+    <when-property-is name="mgwt.os" value="ios" />
   </replace-with>
-  
-  <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxIPhoneAppearance">
+  <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxIOSHighDPIAppearance">
     <when-type-is class="com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAppearance" />
-      <any>
-	    <when-property-is name="mgwt.os" value="iphone" />
-        <when-property-is name="mgwt.os" value="retina" />
-     </any>
+    <all>
+      <when-property-is name="mgwt.os" value="ios" />
+      <when-property-is name="mgwt.density" value="high" />
+    </all>
+  </replace-with>
+  <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxIOSXHighDPIAppearance">
+    <when-type-is class="com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAppearance" />
+    <all>
+      <when-property-is name="mgwt.os" value="ios" />
+      <when-property-is name="mgwt.density" value="xhigh" />
+    </all>
   </replace-with>
 
   <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxAndroidAppearance">
     <when-type-is class="com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAppearance" />
-      <any>
-        <when-property-is name="mgwt.os" value="android" />
-        <when-property-is name="mgwt.os" value="android_tablet" />
-     </any>
-  </replace-with>
-
-  <replace-with class="com.googlecode.mgwt.ui.client.theme.platform.input.search.MSearchBoxBlackberryAppearance">
-    <when-type-is class="com.googlecode.mgwt.ui.client.widget.input.search.MSearchBoxAppearance" />
-	  <any>
-        <when-property-is name="mgwt.os" value="blackberry" />
-      </any>
+    <when-property-is name="mgwt.os" value="android" />
   </replace-with>
 </module>

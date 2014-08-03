@@ -1,0 +1,75 @@
+.mgwt-SearchBox {
+  background-color: #B0B4C0;
+  background-size: 100% 44px;
+  background-repeat: repeat;
+  background-position: 0px 0px;
+}
+
+@if user.agent safari {
+  .mgwt-SearchBox {
+    background-image: literal('-webkit-gradient(linear,left bottom,left top,color-stop(0, #A8ACB9),color-stop(1, #eee))');
+  }
+}
+
+@if user.agent gecko1_8 {
+  .mgwt-SearchBox {
+    background-image: literal('-moz-linear-gradient(bottom, #A8ACB9, #eee)');
+  }
+}
+
+@if user.agent ie9 ie10 {
+  .mgwt-SearchBox {
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhOGFjYjkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  }
+}
+
+.mgwt-SearchBox-round {
+  height: 30px;
+  border: none;
+  border-bottom-left-radius: 4px 4px;
+  border-bottom-right-radius: 4px 4px;
+  border-top-left-radius: 4px 4px;
+  border-top-right-radius: 4px 4px;
+  background-color: white;
+}
+
+.mgwt-SearchBox-input {
+  font-family: HelveticaNeue-Light;
+  font-size: 16px;
+  color: #64636B;
+}
+
+.mgwt-SearchBox-icon {
+  top: 9px;
+  left: 8px;
+}
+
+
+@if mgwt.density high {
+  .mgwt-SearchBox-icon {
+    -webkit-mask-size: 17px 17px;
+  }
+}
+
+@if mgwt.density xhigh {
+  .mgwt-SearchBox-icon {
+    -webkit-mask-size: 12px 12px;
+  }
+}
+
+.mgwt-SearchBox-clear {
+  top: 1px;
+  right: 0px;
+}
+
+@if mgwt.density high {
+  .mgwt-SearchBox-clear {
+    -webkit-mask-size: 19px 19px;
+  }
+}
+
+@if mgwt.density xhigh {
+  .mgwt-SearchBox-clear {
+    -webkit-mask-size: 14px 14px;
+  }
+}

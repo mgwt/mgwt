@@ -6,8 +6,9 @@
 	
 	<g:FormPanel ui:field="form" styleName="{appearance.css.searchBox}">
 		<g:FlowPanel styleName="{appearance.css.round}">
+		  <g:FlowPanel styleName="{appearance.css.searchIcon}"></g:FlowPanel>
 		  <g:TextBox ui:field="textBox" styleName="{appearance.css.input}"></g:TextBox>
 		  <m:input.search.MSearchBox.MSearchBoxButton ui:field="clearButton"/>
 		</g:FlowPanel>
 	</g:FormPanel>
-</ui:UiBinder> 
+</ui:UiBinder>
