@@ -6,7 +6,9 @@
 	
    <g:FlowPanel ui:field="main" styleName="{appearance.css.pullToRefresh}">
         <g:FlowPanel ui:field="icon" styleName="{appearance.css.arrow}"/>
-		<mgwt:progress.ProgressIndicator ui:field="indicator" styleName="{appearance.css.spinner}" />     
+        <g:FlowPanel styleName="{appearance.css.spinner}">
+            <mgwt:progress.ProgressIndicator ui:field="indicator"/>
+        </g:FlowPanel>
      <g:HTML ui:field="textContainer" styleName="{appearance.css.text}" />
    
    </g:FlowPanel>
