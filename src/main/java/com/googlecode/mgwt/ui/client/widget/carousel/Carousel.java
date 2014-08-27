@@ -34,6 +34,8 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 import com.googlecode.mgwt.collection.shared.LightArrayInt;
 import com.googlecode.mgwt.dom.client.event.orientation.OrientationChangeEvent;
 import com.googlecode.mgwt.dom.client.event.orientation.OrientationChangeHandler;
+import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
 import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.widget.carousel.CarouselAppearance.CarouselCss;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPanel;
@@ -57,13 +59,13 @@ import java.util.Set;
  */
 public class Carousel extends Composite implements HasWidgets, HasSelectionHandlers<Integer> {
 
-  private static class CarouselIndicatorContainer extends Composite {
+  private class CarouselIndicatorContainer extends Composite {
     private FlexPanel main;
     private final CarouselCss css;
     private ArrayList<CarouselIndicator> indicators;
     private int selectedIndex;
 
-    public CarouselIndicatorContainer(CarouselCss css, int numberOfPages) {
+    public CarouselIndicatorContainer(CarouselCss css, int numberOfPages, boolean supportCarouselIndicatorTap) {
       if (numberOfPages < 0) {
         throw new IllegalArgumentException();
       }
@@ -87,6 +89,16 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
         CarouselIndicator indicator = new CarouselIndicator(css);
         indicators.add(indicator);
         container.add(indicator);
+        if (supportCarouselIndicatorTap) {
+            final int index = i;
+            indicator.addTapHandler(new TapHandler() {
+                
+                @Override
+                public void onTap(TapEvent event) {
+                    Carousel.this.setSelectedPage(index);
+                }
+            });
+        }
       }
 
       setSelectedIndex(selectedIndex);
@@ -136,6 +148,7 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
   public FlowPanel container;
   private CarouselIndicatorContainer carouselIndicatorContainer;
   private boolean isVisibleCarouselIndicator = true;
+  private boolean supportCarouselIndicatorTap = false;
 
   private int currentPage;
 
@@ -279,7 +292,7 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
 
         int widgetCount = container.getWidgetCount();
 
-        carouselIndicatorContainer = new CarouselIndicatorContainer(appearance.cssCarousel(), widgetCount);
+        carouselIndicatorContainer = new CarouselIndicatorContainer(appearance.cssCarousel(), widgetCount, supportCarouselIndicatorTap);
 
         if(isVisibleCarouselIndicator){
           main.add(carouselIndicatorContainer);
@@ -383,6 +396,13 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
       carouselIndicatorContainer.removeFromParent();
     }
     this.isVisibleCarouselIndicator = isVisibleCarouselIndicator;
+  }
+  
+  /**
+   * Set if carousel indicator support tap events.
+   */
+  public void setSupportCarouselIndicatorTap(boolean supportCarouselIndicatorTap) {
+      this.supportCarouselIndicatorTap = supportCarouselIndicatorTap;
   }
 
   public ScrollPanel getScrollPanel() {
