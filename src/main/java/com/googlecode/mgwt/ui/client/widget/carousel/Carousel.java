@@ -425,7 +425,10 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
    * Set if carousel indicator support tap events.
    */
   public void setSupportCarouselIndicatorTap(boolean supportCarouselIndicatorTap) {
-      this.supportCarouselIndicatorTap = supportCarouselIndicatorTap;
+      if (supportCarouselIndicatorTap != this.supportCarouselIndicatorTap) {
+          this.supportCarouselIndicatorTap = supportCarouselIndicatorTap;
+          refresh();
+      }
   }
 
   public ScrollPanel getScrollPanel() {
