@@ -136,6 +136,10 @@ public class FormEntry extends Composite implements HasWidgets, HasHTML {
 	    addStyleName(this.appearance.css().formEntryInvalid());
 	  }
 	}
+	
+	public void removeFieldName(){
+		label.removeFromParent();
+	}
 
   public boolean isValid() {
     return valid;

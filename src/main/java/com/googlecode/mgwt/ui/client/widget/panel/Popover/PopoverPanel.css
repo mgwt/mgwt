@@ -1,0 +1,52 @@
+@if mgwt.css pretty {
+  @external mgwt-PopPanel, mgwt-PopPanel-round;
+}
+
+.mgwt-PopPanel {
+position: absolute;
+width: 250px;
+height: 120px;
+padding: 3px;
+background: #FFFFFF;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+margin:5px;
+
+-webkit-animation: cssAnimation 0.6889s 1 linear;
+-moz-animation: cssAnimation 0.6889s 1 linear;
+-o-animation: cssAnimation 0.6889s 1 linear;
+}
+
+@-webkit-keyframes cssAnimation {
+from { -webkit-transform: rotate(0deg) scale(0.439) skew(1deg) translate(0px); }
+to { -webkit-transform: rotate(0deg) scale(1.005) skew(1deg) translate(0px); }
+}
+@-moz-keyframes cssAnimation {
+from { -moz-transform: rotate(0deg) scale(0.439) skew(1deg) translate(0px); }
+to { -moz-transform: rotate(0deg) scale(1.005) skew(1deg) translate(0px); }
+}
+@-o-keyframes cssAnimation {
+from { -o-transform: rotate(0deg) scale(0.439) skew(1deg) translate(0px); }
+to { -o-transform: rotate(0deg) scale(1.005) skew(1deg) translate(0px); }
+}
+
+.mgwt-PopPanel:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 27px 15px;
+border-color: #FFFFFF transparent;
+display: block;
+width: 0;
+z-index: 1;
+top: -15px;
+left: 21px;
+}
+.mgwt-PopPanel-round {
+ border-radius: 15px;
+ -webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+}
+

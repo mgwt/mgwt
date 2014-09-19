@@ -39,6 +39,7 @@ under * the License.
   <inherits name='com.googlecode.mgwt.ui.client.widget.input.slider.Slider' />
   <inherits name='com.googlecode.mgwt.ui.client.widget.form.Form' />
   <inherits name='com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPanel' />
+  <inherits name='com.googlecode.mgwt.ui.client.widget.panel.Popover.PopoverPanel' />
   <inherits name='com.googlecode.mgwt.ui.client.widget.panel.Panel' />
   <inherits name='com.googlecode.mgwt.ui.client.widget.panel.pull.PullPanel' />
   <inherits name='com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollPanel' />
