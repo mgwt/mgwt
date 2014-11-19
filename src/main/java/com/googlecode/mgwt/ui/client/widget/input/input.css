@@ -6,13 +6,17 @@
 
 
 @if user.agent safari {
-  .mgwt-TextBox, .mgwt-InputBox-box, .mgwt-PasswordTextBox,
-  .mgwt-InputBox-box, .mgwt-TextArea, .mgwt-InputBox-box {
+  .mgwt-TextBox, .mgwt-PasswordTextBox, .mgwt-TextArea,
+  .mgwt-InputBox-box {
     display: -webkit-box;
     -webkit-box-flex: 1;
     -webkit-appearance: none;
     -webkit-user-select: text;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+@if user.agent safari {
+  .mgwt-InputBox-box {
     -webkit-user-modify: read-write-plaintext-only;
   }
 }
