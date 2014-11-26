@@ -184,7 +184,7 @@ public class CellList<T> extends Widget implements HasCellSelectedHandler {
    * Construct a celllist with a given cell and css
    *
    * @param cell the cell to use
-   * @param appearance the appearance to use
+   * @param css the css to use
    */
   public CellList(Cell<T> cell, CellListAppearance appearance) {
 
@@ -310,18 +310,5 @@ public class CellList<T> extends Widget implements HasCellSelectedHandler {
       timer.cancel();
       timer = null;
     }
-  }
-
-  /**
-   * update a specific item in the list
-   * @param index index of the item to update
-   * @param model data to use for rendering
-   */
-  public void updateCell(int index, T model){
-    Node child = container.getChild(index);
-    if(child == null) return;
-    SafeHtmlBuilder cellBuilder = new SafeHtmlBuilder();
-    cell.render(cellBuilder, model);
-    Element.as(child).setInnerHTML(cellBuilder.toSafeHtml().asString());
   }
 }
