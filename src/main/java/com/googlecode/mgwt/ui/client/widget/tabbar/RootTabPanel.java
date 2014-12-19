@@ -129,6 +129,11 @@ public class RootTabPanel extends Composite implements HasSelectionHandlers<Inte
   public void setSelectedChild(int index) {
     tabBar.setSelectedButton(index, true);
   }
+  
+  public void setSelectedChild(int index, boolean suppressEvent) {
+  	tabBar.setSelectedButton(index, suppressEvent);
+  }
+  
 
   public void add(TabBarButtonBase button) {
     tabBar.add(button);

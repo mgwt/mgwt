@@ -30,7 +30,6 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.Widget;
-
 import com.googlecode.mgwt.dom.client.event.touch.TouchHandler;
 import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.util.CssUtil;
@@ -45,9 +44,22 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
 
   private class SliderTouchHandler implements TouchHandler {
 
+  	private boolean touchingPointer = false;
+  	
     @Override
     public void onTouchStart(TouchStartEvent event) {
-      setValueContrained(event.getTouches().get(0).getClientX());
+    	if (isDragOnly()) {
+    		int x =  event.getTouches().get(0).getClientX();
+    		int absL = pointer.getAbsoluteLeft();
+    		int width = pointer.getClientWidth();
+    		if ( x >= (absL - RESTRICT_PADDING) &&
+    				 x <= (absL + width + RESTRICT_PADDING) ) {
+    			touchingPointer = true;
+    		}    		
+    	}
+    	else {
+        setValueContrained(event.getTouches().get(0).getClientX());    		
+    	}
       if (MGWT.getFormFactor().isDesktop()) {
         DOM.setCapture(getElement());
       }
@@ -57,8 +69,10 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
 
     @Override
     public void onTouchMove(TouchMoveEvent event) {
-
-      setValueContrained(event.getTouches().get(0).getClientX());
+    	if ( (isDragOnly()  && touchingPointer) || !isDragOnly() )
+    	{
+        setValueContrained(event.getTouches().get(0).getClientX());    		    		
+    	}
       event.stopPropagation();
       event.preventDefault();
     }
@@ -68,6 +82,7 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
       if (MGWT.getFormFactor().isDesktop()) {
         DOM.releaseCapture(getElement());
       }
+      touchingPointer = false;
       event.stopPropagation();
       event.preventDefault();
     }
@@ -77,6 +92,7 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
       if (MGWT.getFormFactor().isDesktop()) {
         DOM.releaseCapture(getElement());
       }
+      touchingPointer = false;
     }
   }
 
@@ -87,11 +103,16 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
   private int value;
   private int max;
   private final SliderAppearance apperance;
+	private HandlerRegistration touchHandler;
+	private boolean readOnly;
+	private boolean restrictDrag;
+	private final static int RESTRICT_PADDING = 15;
 
   @UiField
   public Element pointer;
   @UiField
   public Element bar;
+
 
   public Slider() {
     this(DEFAULT_APPEARANCE);
@@ -100,7 +121,8 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
   public Slider(SliderAppearance apperance) {
     this.apperance = apperance;
     setElement(this.apperance.uiBinder().createAndBindUi(this));
-    TOUCH_WIDGET_IMPL.addTouchHandler(this, new SliderTouchHandler());
+    this.restrictDrag = false;
+    this.readOnly = false;
     max = 100;
     value = 0;
   }
@@ -148,8 +170,13 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
       @Override
       public void execute() {
         setSliderPos(value);
+        if (!isReadOnly())
+        	setTouchHandler();
       }
     });
+    if (!isAttached() && touchHandler != null) {
+    	removeTouchHandler();
+    }
   }
 
   @Override
@@ -220,4 +247,63 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
   private void setPos(int x) {
     CssUtil.translate(pointer, x, 0);
   }
+  
+	/**
+	 * Should the slider be read only
+	 *
+	 * @param readonly true to be read only
+	 */
+	public void setReadOnly(boolean readonly) {
+		if (readonly) {
+			removeTouchHandler();
+		}
+		else {
+			setTouchHandler();
+		}
+		this.readOnly = readonly;
+	}
+
+  /**
+   * Is the slider currently read only?
+   *
+   * @return true if the slider is readonly
+   */
+	public boolean isReadOnly() {
+		return readOnly;
+	}
+	
+	/**
+	 * Restrict the slider to change value on if dragged.
+	 * 
+	 * @param onlyDrag true if restricted to dragging.
+	 */
+	public void setDragOnly(boolean onlyDrag) {
+		this.restrictDrag = onlyDrag;
+	}
+	
+	/**
+	 * Is the slider restricted to dragging only?
+	 * 
+	 * @return true if restricted.  If false, then touching
+	 * anywhere in the slider track will move the slider handle
+	 * to that location and trigger associated value change event.
+	 * 
+	 */
+	public boolean isDragOnly() {
+		return this.restrictDrag;
+	}
+
+	private void setTouchHandler() {
+		if (touchHandler == null) {
+			touchHandler = TOUCH_WIDGET_IMPL.addTouchHandler(this, new SliderTouchHandler());			
+		}
+	}
+	
+	private void removeTouchHandler() {
+		if (touchHandler != null) {
+			touchHandler.removeHandler();
+			touchHandler = null;
+		}
+	}
+	
 }
