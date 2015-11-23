@@ -10,7 +10,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.googlecode.mgwt</groupId>
-  <artifactId>mgwt</artifactId>
+  <artifactId>mgwt-xylo</artifactId>
   <version>2.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>mgwt</name>
