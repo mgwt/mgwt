@@ -8,6 +8,7 @@
 
 .mgwt-HeaderPanel {
   height: 40px;
+  min-height: 40px;
   border-bottom: 1px solid rgb(45, 54, 66);
   background: #e5e9e8;
   color: #454545;

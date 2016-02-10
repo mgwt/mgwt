@@ -26,7 +26,7 @@ import com.googlecode.mgwt.ui.client.MGWT;
 public class IconHandler {
 
   static {
-    if (MGWT.getOsDetection().isAndroid4_3_orLower()) {
+    if (MGWT.getOsDetection().isAndroid4_3_orLower() || MGWT.getOsDetection().isIEEdge()) {
       ICON_HANDLER = new IconHandlerEmulatedImpl();
     } else {
       ICON_HANDLER = GWT.create(IconHandlerImpl.class);

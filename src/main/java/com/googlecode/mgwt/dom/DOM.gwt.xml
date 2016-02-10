@@ -23,8 +23,9 @@
     
     <define-property name="mgwt.formfactor" values="phone, tablet, desktop" />
     <property-provider name="mgwt.formfactor"><![CDATA[
-        // Look for the formfactor as a url argument.
-        var args = location.search;
+      // Look for the formfactor as a url argument.
+      var args = location.search;
+      if (args) {
         var start = args.indexOf("formfactor");
         if (start >= 0) {
           var value = args.substring(start);
@@ -35,7 +36,7 @@
           }
           return value.substring(begin, end);
         }
-
+      }
       // Detect form factor from user agent.
       var ua = navigator.userAgent.toLowerCase();
       if (ua.indexOf("windows phone 8") != -1) {

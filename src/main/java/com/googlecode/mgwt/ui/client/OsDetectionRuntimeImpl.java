@@ -10,7 +10,7 @@ public class OsDetectionRuntimeImpl implements OsDetection {
   @Override
   public boolean isIPhone() {
     String userAgent = getUserAgent();
-    if (userAgent.contains("iphone") && getDevicePixelRatio() < 2) {
+    if (!isIEEdge(userAgent) && !isWindowsPhone() && userAgent.contains("iphone") && getDevicePixelRatio() < 2) {
       return true;
     }
     return false;
@@ -19,7 +19,7 @@ public class OsDetectionRuntimeImpl implements OsDetection {
   @Override
   public boolean isIPad() {
     String userAgent = getUserAgent();
-    if (userAgent.contains("ipad") && getDevicePixelRatio() < 2) {
+    if (!isIEEdge(userAgent) && userAgent.contains("ipad") && getDevicePixelRatio() < 2) {
       return true;
     }
     return false;
@@ -33,7 +33,7 @@ public class OsDetectionRuntimeImpl implements OsDetection {
   @Override
   public boolean isRetina() {
     String userAgent = getUserAgent();
-    if (userAgent.contains("iphone") && getDevicePixelRatio() >= 2) {
+    if (!isIEEdge(userAgent) && !isWindowsPhone() && userAgent.contains("iphone") && getDevicePixelRatio() >= 2) {
       return true;
     }
     return false;
@@ -42,7 +42,7 @@ public class OsDetectionRuntimeImpl implements OsDetection {
   @Override
   public boolean isIPadRetina() {
     String userAgent = getUserAgent();
-    if (userAgent.contains("ipad") && getDevicePixelRatio() >= 2) {
+    if (!isIEEdge(userAgent) && userAgent.contains("ipad") && getDevicePixelRatio() >= 2) {
       return true;
     }
     return false;
@@ -50,7 +50,7 @@ public class OsDetectionRuntimeImpl implements OsDetection {
 
   @Override
   public boolean isDesktop() {
-    return !isIOs() && !isAndroid();
+    return !isIOs() && !isAndroid() && !isWindowsPhone();
   }
 
   @Override
@@ -61,7 +61,7 @@ public class OsDetectionRuntimeImpl implements OsDetection {
   @Override
   public boolean isAndroidTablet() {
     String userAgent = getUserAgent();
-    if (userAgent.contains("android") && !userAgent.contains("mobile")) {
+    if (!isIEEdge(userAgent) && !isWindowsPhone() && userAgent.contains("android") && !userAgent.contains("mobile")) {
       return true;
     }
     return false;
@@ -70,7 +70,7 @@ public class OsDetectionRuntimeImpl implements OsDetection {
   @Override
   public boolean isAndroidPhone() {
     String userAgent = getUserAgent();
-    if (userAgent.contains("android") && userAgent.contains("mobile")) {
+    if (!isIEEdge(userAgent) && !isWindowsPhone() && userAgent.contains("android") && userAgent.contains("mobile")) {
       return true;
     }
     return false;
@@ -85,7 +85,7 @@ public class OsDetectionRuntimeImpl implements OsDetection {
   public boolean isWindowsPhone()
   {
     String userAgent = getUserAgent();
-    if (userAgent.contains("windows phone 8")) {
+    if (userAgent.contains("windows phone 8") || userAgent.contains("windows phone 10")) {
       return true;
     }
     return false;
@@ -99,7 +99,7 @@ public class OsDetectionRuntimeImpl implements OsDetection {
   @Override
   public boolean isAndroid4_4_OrHigher() {
     String userAgent = getUserAgent();
-    if (userAgent.contains("android") && userAgent.contains("chrome")) {
+    if (!isIEEdge(userAgent) && userAgent.contains("android") && userAgent.contains("chrome")) {
       return true;
     }
     return false;
@@ -108,7 +108,7 @@ public class OsDetectionRuntimeImpl implements OsDetection {
   @Override
   public boolean isAndroid2x() {
     String userAgent = getUserAgent();
-    if (userAgent.contains("android 2.")) {
+    if (!isIEEdge(userAgent) && userAgent.contains("android 2.")) {
       return true;
     }
     return false;
@@ -149,11 +149,25 @@ public class OsDetectionRuntimeImpl implements OsDetection {
     }
 
     String userAgent = getUserAgent();
-    if (userAgent.contains("android")) {
+    if (!isIEEdge(userAgent) && userAgent.contains("android")) {
       return true;
     }
 
     return false;
+  }
+
+  private boolean isIEEdge(String userAgent)
+  {
+    if (userAgent.contains("edge/12")) {
+      return true;
+    }
+    return false;
+  }
+
+  @Override
+  public boolean isIEEdge()
+  {
+    return isIEEdge(getUserAgent());
   }
 
 }

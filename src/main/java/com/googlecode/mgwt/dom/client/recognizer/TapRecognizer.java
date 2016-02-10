@@ -25,6 +25,7 @@ import com.google.gwt.event.dom.client.TouchStartEvent;
 import com.google.gwt.event.shared.HasHandlers;
 
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.dom.client.event.touch.TouchCopy;
 import com.googlecode.mgwt.dom.client.event.touch.TouchHandler;
 
 /**
@@ -36,91 +37,90 @@ import com.googlecode.mgwt.dom.client.event.touch.TouchHandler;
  */
 public class TapRecognizer implements TouchHandler {
 
-	public static final int DEFAULT_DISTANCE = 15;
+  public static final int DEFAULT_DISTANCE = 15;
 
-	private final int distance;
+  private final int distance;
 
-	private boolean touchCanceled;
+  private boolean touchCanceled;
 
-	private boolean hasMoved;
+  private boolean hasMoved;
 
-	private Touch touch;
+  private TouchCopy touchStartCopy;
 
-	private int start_x;
+  private Element targetElement;
 
-	private int start_y;
+  private final HasHandlers source;
 
-	private Element targetElement;
+  private EventPropagator eventPropagator;
 
-	private final HasHandlers source;
+  private static EventPropagator DEFAULT_EVENT_PROPAGATOR;
 
-	private EventPropagator eventPropagator;
+  public TapRecognizer(HasHandlers source) {
+    this(source, DEFAULT_DISTANCE);
+  }
 
-	private static EventPropagator DEFAULT_EVENT_PROPAGATOR;
+  public TapRecognizer(HasHandlers source, int distance) {
+    if (source == null)
+      throw new IllegalArgumentException("source can not be null");
+    if (distance < 0)
+      throw new IllegalArgumentException("distance has to be greater than zero");
+    this.source = source;
+    this.distance = distance;
+  }
 
-	public TapRecognizer(HasHandlers source) {
-		this(source, DEFAULT_DISTANCE);
-	}
+  @Override
+  public void onTouchStart(TouchStartEvent event) {
+    touchCanceled = false;
+    hasMoved = false;
+    if(event.getNativeEvent() != null){
+      targetElement = event.getNativeEvent().getEventTarget().<Element>cast();
+    }else {
+      targetElement = null;
+    }
+    Touch touch = event.getTouches().get(0);
+    touchStartCopy = TouchCopy.copy(touch);
+  }
 
-	public TapRecognizer(HasHandlers source, int distance) {
-		if (source == null)
-			throw new IllegalArgumentException("source can not be null");
-		if (distance < 0)
-			throw new IllegalArgumentException("distance has to be greater than zero");
-		this.source = source;
-		this.distance = distance;
-	}
+  @Override
+  public void onTouchMove(TouchMoveEvent event) {
+    if (touchStartCopy != null) {
+      Touch touch = event.getTouches().get(0);
+      if (Math.abs(touch.getPageX() - touchStartCopy.getPageX()) > distance || Math.abs(touch.getPageY() - touchStartCopy.getPageY()) > distance) {
+        hasMoved = true;
+        touchStartCopy = null;
+      }
+    }
+  }
 
-	@Override
-	public void onTouchStart(TouchStartEvent event) {
-		touchCanceled = false;
-		hasMoved = false;
-		if(event.getNativeEvent() != null){
-			targetElement = event.getNativeEvent().getEventTarget().<Element>cast();
-		}else {
-			targetElement = null;
-		}
-		touch = event.getTouches().get(0);
-		start_x = touch.getPageX();
-		start_y = touch.getPageY();
-	}
-
-	@Override
-	public void onTouchMove(TouchMoveEvent event) {
-		Touch touch = event.getTouches().get(0);
-		if (Math.abs(touch.getPageX() - start_x) > distance || Math.abs(touch.getPageY() - start_y) > distance) {
-			hasMoved = true;
-		}
-	}
-
-	@Override
-	public void onTouchEnd(TouchEndEvent event) {
-		if (!hasMoved && !touchCanceled) {
-			TapEvent tapEvent = new TapEvent(source, targetElement, touch);
-			getEventPropagator().fireEvent(source, tapEvent);
-		}
-	}
+  @Override
+  public void onTouchEnd(TouchEndEvent event) {
+    if (!hasMoved && !touchCanceled && (touchStartCopy != null)) {
+      TapEvent tapEvent = new TapEvent(source, targetElement, touchStartCopy);
+      getEventPropagator().fireEvent(source, tapEvent);
+    }
+    touchStartCopy = null;
+  }
 
   @Override
   public void onTouchCancel(TouchCancelEvent event) {
     touchCanceled = true;
   }
 
-	public int getDistance() {
-		return distance;
-	}
+  public int getDistance() {
+    return distance;
+  }
 
-	protected EventPropagator getEventPropagator() {
-		if (eventPropagator == null) {
-			if (DEFAULT_EVENT_PROPAGATOR == null) {
-				DEFAULT_EVENT_PROPAGATOR = GWT.create(EventPropagator.class);
-			}
-			eventPropagator = DEFAULT_EVENT_PROPAGATOR;
-		}
-		return eventPropagator;
-	}
+  protected EventPropagator getEventPropagator() {
+    if (eventPropagator == null) {
+      if (DEFAULT_EVENT_PROPAGATOR == null) {
+        DEFAULT_EVENT_PROPAGATOR = GWT.create(EventPropagator.class);
+      }
+      eventPropagator = DEFAULT_EVENT_PROPAGATOR;
+    }
+    return eventPropagator;
+  }
 
-	public Element getTargetElement() {
-	  return targetElement;
-	}
+  public Element getTargetElement() {
+    return targetElement;
+  }
 }

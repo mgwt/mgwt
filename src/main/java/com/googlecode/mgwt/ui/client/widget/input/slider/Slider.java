@@ -42,6 +42,8 @@ import com.googlecode.mgwt.ui.client.widget.touch.TouchWidgetImpl;
  */
 public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor<Integer> {
 
+  private boolean active = false;
+  
   private class SliderTouchHandler implements TouchHandler {
 
     @Override
@@ -50,16 +52,18 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
       if (TouchSupport.isTouchEventsEmulatedUsingMouseEvents()) {
         DOM.setCapture(getElement());
       }
+      active = true;
       event.stopPropagation();
       event.preventDefault();
-    }
+    } 
 
     @Override
     public void onTouchMove(TouchMoveEvent event) {
-
-      setValueContrained(event.getTouches().get(0).getClientX());
-      event.stopPropagation();
-      event.preventDefault();
+      if (active) {
+        setValueContrained(event.getTouches().get(0).getClientX());
+        event.stopPropagation();
+        event.preventDefault();
+      }
     }
 
     @Override
@@ -69,6 +73,7 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
       }
       event.stopPropagation();
       event.preventDefault();
+      active = false;
     }
 
     @Override
@@ -76,6 +81,7 @@ public class Slider extends Widget implements HasValue<Integer>, LeafValueEditor
       if (TouchSupport.isTouchEventsEmulatedUsingMouseEvents()) {
         DOM.releaseCapture(getElement());
       }
+      active = false;
     }
   }
 

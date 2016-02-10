@@ -16,7 +16,6 @@
 package com.googlecode.mgwt.dom.client.event.tap;
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.Touch;
 import com.google.gwt.event.shared.GwtEvent;
 import com.googlecode.mgwt.dom.client.event.touch.TouchCopy;
 
@@ -33,9 +32,9 @@ public class TapEvent extends GwtEvent<TapHandler> {
 	private final TouchCopy touchCopy;
 	private final Element targetElement;
 
-	 public TapEvent(Object source, Element targetElement, Touch touch) {
+	 public TapEvent(Object source, Element targetElement, TouchCopy touchCopy) {
 	    this.targetElement = targetElement;
-	    this.touchCopy = TouchCopy.copy(touch);
+	    this.touchCopy = touchCopy;
 	    setSource(source);
 	  }
 

@@ -24,13 +24,36 @@ import com.google.gwt.event.shared.EventHandler;
  */
 public abstract class MsPointerEvent<H extends EventHandler> extends MouseEvent<H> {
 
-  public static final String MSPOINTERDOWN = "MSPointerDown";
-  public static final String MSPOINTERMOVE = "MSPointerMove";
-  public static final String MSPOINTEROUT = "MSPointerOut";
-  public static final String MSPOINTEROVER = "MSPointerOver";
-  public static final String MSPOINTERUP = "MSPointerUp";
-  public static final String MSPOINTERCANCEL = "MSPointerCancel";
+  private native static boolean isIE10PointerEventModel() /*-{
+    return (!$wnd.navigator.pointerEnabled);
+  }-*/;
 
+  public static final String MSPOINTERDOWN;
+  public static final String MSPOINTERMOVE;
+  public static final String MSPOINTEROUT;
+  public static final String MSPOINTEROVER;
+  public static final String MSPOINTERUP;
+  public static final String MSPOINTERCANCEL;
+
+  static {
+    if (isIE10PointerEventModel()) {
+      MSPOINTERDOWN = "MSPointerDown";
+      MSPOINTERMOVE = "MSPointerMove";
+      MSPOINTEROUT = "MSPointerOut";
+      MSPOINTEROVER = "MSPointerOver";
+      MSPOINTERUP = "MSPointerUp";
+      MSPOINTERCANCEL = "MSPointerCancel";
+    }
+    else {
+      MSPOINTERDOWN = "pointerdown";
+      MSPOINTERMOVE = "pointermove";
+      MSPOINTEROUT = "pointerout";
+      MSPOINTEROVER = "pointerover";
+      MSPOINTERUP = "pointerup";
+      MSPOINTERCANCEL = "pointercancel";
+    }
+  }
+  
   public final native int getPointerId() /*-{
     var e = this.@com.google.gwt.event.dom.client.DomEvent::nativeEvent;
     return e.pointerId;

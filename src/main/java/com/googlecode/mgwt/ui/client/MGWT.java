@@ -341,7 +341,7 @@ public class MGWT {
   }-*/;
 
   private static void setupPreventScrollingIE10(Element el) {
-    el.setAttribute("style", "-ms-touch-action: none;");
+    el.setAttribute("style", "-ms-touch-action: none; touch-action: none;");
   }
 
   /**

@@ -123,13 +123,6 @@ public class CellList<T> extends Widget implements HasCellSelectedHandler {
         return;
       }
 
-      // if windows phone then do not prevent default, causes scrolling issues when
-      // in scroll panel (not sure why), ie10 desktop is fine
-      if (!MGWT.getOsDetection().isWindowsPhone())
-      {
-        event.preventDefault();
-      }
-
       // text node use the parent..
       if (Node.is(eventTarget) && !Element.is(eventTarget)) {
         Node target = Node.as(eventTarget);

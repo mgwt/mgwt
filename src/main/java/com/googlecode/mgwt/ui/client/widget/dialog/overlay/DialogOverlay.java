@@ -13,6 +13,10 @@
  */
 package com.googlecode.mgwt.ui.client.widget.dialog.overlay;
 
+import java.util.Iterator;
+
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.EventTarget;
@@ -30,7 +34,6 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
-
 import com.googlecode.mgwt.dom.client.event.mouse.HandlerRegistrationCollection;
 import com.googlecode.mgwt.dom.client.event.tap.HasTapHandlers;
 import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
@@ -46,8 +49,6 @@ import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPropertyHelper.Justif
 import com.googlecode.mgwt.ui.client.widget.panel.flex.RootFlexPanel;
 import com.googlecode.mgwt.ui.client.widget.touch.TouchDelegate;
 
-import java.util.Iterator;
-
 /**
  * Baseclass for creating dialogs that are animated
  *
@@ -55,12 +56,42 @@ import java.util.Iterator;
  */
 public abstract class DialogOverlay implements HasWidgets, HasTouchHandlers, HasTapHandlers,
     Dialog {
-
-  private static class NoopAnimationEndCallback implements AnimationEndCallback {
+  
+  private class HideAnimationEndCallback implements AnimationEndCallback {
     public void onAnimationEnd() {
+      HasWidgets panel = getPanelToOverlay();
+      panel.remove(display.asWidget());
+      // see issue 247 => http://code.google.com/p/mgwt/issues/detail?id=247
+      MGWTUtil.forceFullRepaint();
+
+      transitionState = TransitionState.NOTVISIBLE;
+      if (requestShow) {
+        requestShow = false;
+        Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+          @Override
+          public void execute() {
+            show();
+          }
+        });
+      }
     }
   }
 
+  private class ShowAnimationEndCallback implements AnimationEndCallback {
+    public void onAnimationEnd() {
+      transitionState = TransitionState.VISIBLE;
+      if (requestHide) {
+        requestHide = false;
+        Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+          @Override
+          public void execute() {
+            hide();
+          }
+        });
+      }
+    }
+  }
+  
   private class InternalTouchHandler implements TouchHandler {
     private final Element shadow;
     private Element startTarget;
@@ -111,7 +142,8 @@ public abstract class DialogOverlay implements HasWidgets, HasTouchHandlers, Has
     }
   }
 
-  private static final NoopAnimationEndCallback NOOP_CALLBACK = new NoopAnimationEndCallback();
+  private final AnimationEndCallback SHOW_ANIMATION_CALLBACK = new ShowAnimationEndCallback();
+  private final AnimationEndCallback HIDE_ANIMATION_CALLBACK = new HideAnimationEndCallback();
 
   public static final DialogOverlayAppearance DEFAULT_APPEARANCE = GWT
       .create(DialogOverlayAppearance.class);
@@ -124,9 +156,13 @@ public abstract class DialogOverlay implements HasWidgets, HasTouchHandlers, Has
 
   private boolean centerChildren;
   private boolean autoHide;
-  private boolean isVisible;
   private TouchDelegate touchDelegateForDisplay;
-
+  private enum TransitionState {
+    HIDING, SHOWING, VISIBLE, NOTVISIBLE;
+  }
+  private TransitionState transitionState = TransitionState.NOTVISIBLE;
+  private boolean requestHide = false;
+  private boolean requestShow = false;
 
   public DialogOverlay() {
     this(DEFAULT_APPEARANCE);
@@ -215,21 +251,19 @@ public abstract class DialogOverlay implements HasWidgets, HasTouchHandlers, Has
    * hide the dialog if it is visible
    */
   public void hide() {
-    if (!isVisible)
-      return;
-    isVisible = false;
-    Animation animation = getHideAnimation();
-
-    display.animate(animation, false, new AnimationEndCallback() {
-
-      @Override
-      public void onAnimationEnd() {
-        HasWidgets panel = getPanelToOverlay();
-        panel.remove(display.asWidget());
-        // see issue 247 => http://code.google.com/p/mgwt/issues/detail?id=247
-        MGWTUtil.forceFullRepaint();
-      }
-    });
+    if (transitionState == TransitionState.SHOWING) {
+      // not finished showing yet so request to hide once show complete
+      requestHide = true;
+    }
+    else if (transitionState == TransitionState.VISIBLE) {
+      requestHide = false;
+      transitionState = TransitionState.HIDING;
+      display.animate(getHideAnimation(), false, HIDE_ANIMATION_CALLBACK);
+    }
+    else if (transitionState == TransitionState.HIDING) {
+      // not finished hiding yet so remove requestShow if set
+      requestShow = false;
+    }
   }
 
   /**
@@ -292,27 +326,34 @@ public abstract class DialogOverlay implements HasWidgets, HasTouchHandlers, Has
   }
 
   public void show() {
-    if (isVisible) {
-      return;
+    if (transitionState == TransitionState.HIDING) {
+      // not finished hiding yet so request to show once hide complete
+      requestShow = true;
     }
-    isVisible = true;
+    else if (transitionState == TransitionState.NOTVISIBLE) {
+      requestShow = false;
+      transitionState = TransitionState.SHOWING;
+      // add overlay to DOM
+      HasWidgets panel = getPanelToOverlay();
+      panel.add(display.asWidget());
 
-    // add overlay to DOM
-    HasWidgets panel = getPanelToOverlay();
-    panel.add(display.asWidget());
+      if (centerChildren) {
+        container.setAlignment(Alignment.CENTER);
+        container.setJustification(Justification.CENTER);
+      } else {
+        container.clearAlignment();
+        container.clearJustification();
+      }
 
-    if (centerChildren) {
-      container.setAlignment(Alignment.CENTER);
-      container.setJustification(Justification.CENTER);
-    } else {
-      container.clearAlignment();
-      container.clearJustification();
+      display.setFirstWidget(container);
+
+      // and animiate
+      display.animate(getShowAnimation(), true, SHOW_ANIMATION_CALLBACK);
     }
-
-    display.setFirstWidget(container);
-
-    // and animiate
-    display.animate(getShowAnimation(), true, NOOP_CALLBACK);
+    else if (transitionState == TransitionState.SHOWING) {
+      // not finished showing yet so remove requestHide if set
+      requestHide = false;
+    }
   }
 
   protected abstract Animation getShowAnimation();

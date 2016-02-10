@@ -25,6 +25,7 @@
        @see http://code.google.com/p/mgwt/issues/detail?id=215
     -->
     <inherits name='com.google.gwt.user.User'/>
+    <inherits name='com.googlecode.mgwt.useragent.UserAgent'/>
     <inherits name='com.googlecode.mgwt.dom.DOM'/>
     <inherits name='com.googlecode.mgwt.ui.UI'/>
     <inherits name='com.googlecode.mgwt.mvp.MVP'/>

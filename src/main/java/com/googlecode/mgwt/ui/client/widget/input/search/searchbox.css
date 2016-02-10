@@ -81,6 +81,12 @@
   }
 }
 
+@if user.agent ie10 {
+  .mgwt-SearchBox-input {
+    top: 5px;
+  }
+}
+
 .mgwt-SearchBox-clear-active {
 }
 
@@ -98,20 +104,6 @@
   color: #454545;
   border-radius: 16px;
   background-color: white;
-}
-
-@if user.agent safari {
-  .mgwt-SearchBox-icon {
-    -webkit-mask-image: searchImage;
-    -webkit-mask-repeat: no-repeat;
-  }
-}
-
-@if user.agent ie10 {
-  .mgwt-SearchBox-icon {
-    background-image: searchImage;
-    background-repeat: no-repeat;
-  }
 }
 
 .mgwt-SearchBox-icon {
@@ -137,6 +129,20 @@
 	  }
 	}
 	
+	.mgwt-SearchBox-icon {
+	    -webkit-mask-image: searchImage;
+		-webkit-mask-repeat: no-repeat;
+	}
+	
+	@if (com.googlecode.mgwt.ui.client.MGWT.getOsDetection().isIEEdge()) {
+		.mgwt-SearchBox-icon {
+			background-image: searchImage;
+			background-repeat: no-repeat;
+			background-color: inherit;
+		}	
+	
+	}	
+  
   .mgwt-SearchBox-clear {
     -webkit-mask-image: clearImage;
     -webkit-mask-position: center center;
@@ -146,17 +152,12 @@
 
 @if user.agent ie10 {
 
-	@if mgwt.density high {
-	  .mgwt-SearchBox-icon {
-	    background-size: 17px 17px;
-	  }
-	}
-	
-	@if mgwt.density xhigh {
-	  .mgwt-SearchBox-icon {
+	.mgwt-SearchBox-icon {
+		background-image: searchImage;
+		background-repeat: no-repeat;
+    	background-color: transparent;
 	    background-size: 12px 12px;
-	  }
-	}
+  	}
 	
   .mgwt-SearchBox-clear {
     background-image: clearImage;
@@ -192,15 +193,9 @@
 
 @if user.agent ie10 {
 
-	@if mgwt.density high {
-	  .mgwt-SearchBox-clear {
-	    background-size: 19px 19px;
-	  }
+	.mgwt-SearchBox-clear {
+  		background-color: transparent;
+	    background-size: 14px 14px;
 	}
 	
-	@if mgwt.density xhigh {
-	  .mgwt-SearchBox-clear {
-	    background-size: 14px 14px;
-	  }
-	}
 }
