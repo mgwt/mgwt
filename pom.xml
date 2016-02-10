@@ -16,7 +16,7 @@
   <name>mgwt</name>
 
   <properties>
-    <gwtversion>2.6.1</gwtversion>
+    <gwtversion>2.7.0</gwtversion>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
