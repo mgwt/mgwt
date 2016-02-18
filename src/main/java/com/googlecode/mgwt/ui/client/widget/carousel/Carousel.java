@@ -31,10 +31,11 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
-
 import com.googlecode.mgwt.collection.shared.LightArrayInt;
 import com.googlecode.mgwt.dom.client.event.orientation.OrientationChangeEvent;
 import com.googlecode.mgwt.dom.client.event.orientation.OrientationChangeHandler;
+import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
 import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.widget.carousel.CarouselAppearance.CarouselCss;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPanel;
@@ -59,17 +60,20 @@ import java.util.Set;
  */
 public class Carousel extends Composite implements HasWidgets, HasSelectionHandlers<Integer> {
 
-  private static class CarouselIndicatorContainer extends Composite {
+  private class CarouselIndicatorContainer extends Composite {
     private FlexPanel main;
+    private FlexPanel container;
     private final CarouselCss css;
     private ArrayList<CarouselIndicator> indicators;
     private int selectedIndex;
+    private boolean handleTapEvent;
 
-    public CarouselIndicatorContainer(CarouselCss css, int numberOfPages) {
+    public CarouselIndicatorContainer(CarouselCss css, int numberOfPages, boolean handleTapEvent) {
       if (numberOfPages < 0) {
         throw new IllegalArgumentException();
       }
       this.css = css;
+      this.handleTapEvent = handleTapEvent;
       main = new FlexPanel();
       initWidget(main);
       main.setOrientation(Orientation.HORIZONTAL);
@@ -77,7 +81,7 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
 
       main.addStyleName(this.css.indicatorMain());
 
-      FlexPanel container = new FlexPanel();
+      container = new FlexPanel();
       container.addStyleName(this.css.indicatorContainer());
       container.setOrientation(Orientation.HORIZONTAL);
       main.add(container);
@@ -86,12 +90,44 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
       selectedIndex = 0;
 
       for (int i = 0; i < numberOfPages; i++) {
-        CarouselIndicator indicator = new CarouselIndicator(css);
+        CarouselIndicator indicator = new CarouselIndicator(css, i, handleTapEvent);
         indicators.add(indicator);
         container.add(indicator);
       }
 
       setSelectedIndex(selectedIndex);
+    }
+    
+    public void updateNumberOfPages(int numberOfPages) {
+      if (numberOfPages > indicators.size()) {
+        for (int i = indicators.size(); i < numberOfPages; i++) {
+          CarouselIndicator indicator = new CarouselIndicator(css, i, handleTapEvent);
+          indicators.add(indicator);
+          container.add(indicator);
+        }
+      } else {
+        while (numberOfPages < indicators.size()) {
+          int lastIndex = indicators.size() - 1;
+          CarouselIndicator indicator = indicators.get(lastIndex);
+          indicator.clean();
+          indicators.remove(lastIndex);
+        }
+      }
+    }
+
+    public void setHandleTapEvent(boolean handleTapEvent) {
+      if (this.handleTapEvent != handleTapEvent) {
+        this.handleTapEvent = handleTapEvent;
+        for (CarouselIndicator indicator : indicators) {
+          indicator.setHandleTapEvent(handleTapEvent);
+        }
+      }
+    }
+
+    public void clean() {
+      for (CarouselIndicator indicator : indicators) {
+        indicator.clean();
+      }
     }
 
     public void setSelectedIndex(int index) {
@@ -110,15 +146,21 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
     }
   }
 
-  private static class CarouselIndicator extends TouchWidget {
+  private class CarouselIndicator extends TouchWidget {
     private final CarouselCss css;
+    private int index;
+    private com.google.gwt.event.shared.HandlerRegistration tapHandlerRegistration;
 
-    public CarouselIndicator(CarouselCss css) {
+    public CarouselIndicator(CarouselCss css, int index, boolean handleTapEvent) {
       this.css = css;
+      this.index = index;
       setElement(Document.get().createDivElement());
 
       addStyleName(css.indicator());
 
+      if (handleTapEvent) {
+          tapHandlerRegistration = addTapHandler();
+      }
     }
 
     public void setActive(boolean active) {
@@ -127,6 +169,32 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
       } else {
         removeStyleName(css.indicatorActive());
       }
+    }
+    
+    public void setHandleTapEvent(boolean handleTapEvent) {
+      if (!handleTapEvent && tapHandlerRegistration != null) {
+        tapHandlerRegistration.removeHandler();
+        tapHandlerRegistration = null;
+      }
+      if (handleTapEvent && tapHandlerRegistration == null) {
+        tapHandlerRegistration = addTapHandler();
+      }
+    }
+
+    public void clean() {
+      if (tapHandlerRegistration != null) {
+        tapHandlerRegistration.removeHandler();
+        tapHandlerRegistration = null;
+      }
+    }
+
+    private com.google.gwt.event.shared.HandlerRegistration addTapHandler() {
+      return addTapHandler(new TapHandler() {
+        @Override
+        public void onTap(TapEvent event) {
+          Carousel.this.setSelectedPage(index);
+        }
+      });
     }
   }
 
@@ -138,6 +206,7 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
   public FlowPanel container;
   private CarouselIndicatorContainer carouselIndicatorContainer;
   private boolean isVisibleCarouselIndicator = true;
+  private boolean supportCarouselIndicatorTap = false;
 
   private int currentPage;
 
@@ -151,12 +220,17 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
   private boolean hasScollData;
 
   public Carousel() {
-    this(DEFAULT_APPEARANCE);
+    this(DEFAULT_APPEARANCE, false);
+  }
+  
+  public Carousel(CarouselAppearance appearance) {
+      this(appearance, false);
   }
 
-  public Carousel(CarouselAppearance appearance) {
+  public Carousel(CarouselAppearance appearance, boolean supportCarouselIndicatorTap) {
 
     this.appearance = appearance;
+    this.supportCarouselIndicatorTap = supportCarouselIndicatorTap;
     initWidget(this.appearance.carouselBinder().createAndBindUi(this));
     childToHolder = new HashMap<Widget, Widget>();
 
@@ -240,6 +314,11 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
 
   @Override
   public void clear() {
+    if (carouselIndicatorContainer != null) {
+      carouselIndicatorContainer.clean();
+      carouselIndicatorContainer.removeFromParent();
+      carouselIndicatorContainer = null;
+    }
     container.clear();
     childToHolder.clear();
   }
@@ -285,17 +364,15 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
         scrollPanel.setShowVerticalScrollBar(false);
         scrollPanel.setShowHorizontalScrollBar(false);
 
-        if (carouselIndicatorContainer != null) {
-          carouselIndicatorContainer.removeFromParent();
-
-        }
-
         int widgetCount = container.getWidgetCount();
 
-        carouselIndicatorContainer = new CarouselIndicatorContainer(appearance.cssCarousel(), widgetCount);
-
-        if(isVisibleCarouselIndicator){
-          main.add(carouselIndicatorContainer);
+        if (carouselIndicatorContainer == null) {
+          carouselIndicatorContainer = new CarouselIndicatorContainer(appearance.cssCarousel(), widgetCount, supportCarouselIndicatorTap);
+          if(isVisibleCarouselIndicator){
+            main.add(carouselIndicatorContainer);
+          }
+        } else {
+          carouselIndicatorContainer.updateNumberOfPages(widgetCount);
         }
 
         if (currentPage >= widgetCount) {
@@ -405,12 +482,27 @@ public class Carousel extends Composite implements HasWidgets, HasSelectionHandl
    * Set if carousel indicator is displayed.
    */
   public void setShowCarouselIndicator(boolean isVisibleCarouselIndicator) {
-    if (!isVisibleCarouselIndicator && carouselIndicatorContainer != null) {
-      carouselIndicatorContainer.removeFromParent();
+    if (this.isVisibleCarouselIndicator != isVisibleCarouselIndicator && carouselIndicatorContainer != null) {
+      if (!isVisibleCarouselIndicator) {
+        carouselIndicatorContainer.removeFromParent();
+      }
+      if (isVisibleCarouselIndicator) {
+        main.add(carouselIndicatorContainer);
+      }
     }
     this.isVisibleCarouselIndicator = isVisibleCarouselIndicator;
   }
 
+  /**
+   * Set if carousel indicator support tap events.
+   */
+  public void setSupportCarouselIndicatorTap(boolean supportCarouselIndicatorTap) {
+    if (supportCarouselIndicatorTap != this.supportCarouselIndicatorTap) {
+        this.supportCarouselIndicatorTap = supportCarouselIndicatorTap;
+        carouselIndicatorContainer.setHandleTapEvent(supportCarouselIndicatorTap);
+    }
+  }
+  
   public ScrollPanel getScrollPanel() {
     return scrollPanel;
   }
