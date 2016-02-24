@@ -131,6 +131,7 @@ public class OverlayMenu extends Composite {
           if (showNavHandler != null) {
             showNavHandler.removeHandler();
             showNavHandler = null;
+            nav.getElement().getStyle().clearDisplay();
           }
         }
       }, TransitionEndEvent.getType());
