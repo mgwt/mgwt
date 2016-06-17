@@ -14,10 +14,10 @@ public class DialogPanelDefaultAppearance extends DialogPanelAbstractAppearance 
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"dialog-button.css"})
+    @Source({"dialog-button.gss"})
     DialogButtonCss css();
 
-    @Source({"dialog.css"})
+    @Source({"dialog.gss"})
     DialogCss cssPanel();
   }
 

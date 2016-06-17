@@ -18,7 +18,7 @@ public class CellListIOSAppearance extends CellListAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/list/celllist/celllist.css", "celllist-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/list/celllist/celllist.gss", "celllist-ios.gss"})
     Css css();
 
     @Source("arrow.png")

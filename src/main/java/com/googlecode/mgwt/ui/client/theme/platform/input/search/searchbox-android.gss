@@ -1,0 +1,19 @@
+.mgwt-SearchBox {
+  background-color: transparent;
+  border-bottom: 2px solid #52a3c4;
+}
+
+.mgwt-SearchBox-round {
+  background-color: transparent;
+  border: none;
+}
+
+.mgwt-SearchBox-input {
+  background-color: transparent;
+  color: white;
+  top: 10px;
+}
+
+.mgwt-SearchBox-icon {
+  top: 10px;
+}

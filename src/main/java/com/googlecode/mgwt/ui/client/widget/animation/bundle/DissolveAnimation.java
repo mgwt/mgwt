@@ -9,7 +9,7 @@ import com.googlecode.mgwt.ui.client.widget.animation.Animation;
 public class DissolveAnimation extends AnimationBase {
 
   interface Bundle extends ClientBundle {
-    @Source({"dissolve.css"})
+    @Source({"dissolve.gss"})
     CSS css();
   }
 

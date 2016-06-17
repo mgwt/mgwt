@@ -28,7 +28,7 @@ public class MListBoxDefaultAppearance implements MListBoxAppearance{
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"mlistbox.css"})
+    @Source({"mlistbox.gss"})
     MListBoxCss css();
   }
 

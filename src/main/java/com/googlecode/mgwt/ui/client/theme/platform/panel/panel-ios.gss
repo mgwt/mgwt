@@ -1,0 +1,16 @@
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-RoundPanel mgwt-Panel-round;
+}
+
+.mgwt-Panel {
+  background-color: white;
+  border: 1px solid #abadb0;
+  margin: 10px;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.mgwt-Panel-round {
+  border-radius: 15px;
+}

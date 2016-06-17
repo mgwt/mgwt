@@ -41,7 +41,7 @@ public class AnimationWidgetKeyFrameImpl implements AnimationWidgetImpl {
   interface Bundle extends ClientBundle {
     Bundle INSTANCE = GWT.create(Bundle.class);
 
-    @Source("animation-display.css")
+    @Source("animation-display.gss")
     DisplayCss css();
   }
 

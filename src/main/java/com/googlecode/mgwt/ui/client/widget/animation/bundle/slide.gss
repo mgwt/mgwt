@@ -1,0 +1,89 @@
+@if (!is("user.agent", "ie10")) {
+  .in,
+  .out {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+  }
+
+  .in {
+    z-index: 10;
+  }
+
+  .out {
+    z-index: 0 !important;
+  }
+
+  .in {
+    -webkit-animation-name: slideinfromright;
+  }
+
+  .out {
+    -webkit-animation-name: slideouttoleft;
+  }
+
+  .in.reverse {
+    -webkit-animation-name: slideinfromleft;
+  }
+
+  .out.reverse {
+    -webkit-animation-name: slideouttoright;
+  }
+  @-webkit-keyframes slideinfromright {
+    from { -webkit-transform: translateX(100%); }
+    to { -webkit-transform: translateX(0); }
+  }@-webkit-keyframes slideinfromleft {
+    from { -webkit-transform: translateX(-100%); }
+    to { -webkit-transform: translateX(0); }
+  }@-webkit-keyframes slideouttoleft {
+    from { -webkit-transform: translateX(0); }
+    to { -webkit-transform: translateX(-100%); }
+  }@-webkit-keyframes slideouttoright {
+    from { -webkit-transform: translateX(0); }
+    to { -webkit-transform: translateX(100%); }
+  }}
+
+@if (is("user.agent", "ie10")) {
+  .in,
+  .out {
+    animation-timing-function: ease-in-out;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
+  }
+
+  .in {
+    z-index: 10;
+  }
+
+  .out {
+    z-index: 0 !important;
+  }
+
+  .in {
+    animation-name: slideinfromright;
+  }
+
+  .out {
+    animation-name: slideouttoleft;
+  }
+
+  .in.reverse {
+    animation-name: slideinfromleft;
+  }
+
+  .out.reverse {
+    animation-name: slideouttoright;
+  }
+  @keyframes slideinfromright {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }@keyframes slideinfromleft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }@keyframes slideouttoleft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }@keyframes slideouttoright {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+  }}

@@ -1,0 +1,24 @@
+.mgwt-DialogPanel {
+  border: 2px solid #52a3c4;
+  background-color: black;
+  border-radius: 0;
+}
+
+.mgwt-DialogPanel-container {
+  color: #fff;
+  text-shadow: none;
+  border: none;
+  background: black;
+}
+
+.mgwt-DialogPanel-title {
+  border: none;
+  font-size: 19px;
+  border-bottom: 1px solid #52a3c4;
+}
+
+.mgwt-DialogPanel-content {
+}
+
+.mgwt-DialogPanel-footer {
+}

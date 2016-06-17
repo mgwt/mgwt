@@ -1,0 +1,63 @@
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-DialogPanel mgwt-DialogPanel-container mgwt-DialogPanel-title;
+  @external mgwt-DialogPanel-content mgwt-DialogPanel-footer;
+}
+
+.mgwt-DialogPanel {
+  border: solid 1px #72767b;
+  padding: 0;
+  opacity: 1;
+  background-color: #d2d6d6;
+  /* @alternate */ border: 1px solid #9daca9;
+  color: #454545;
+  border-radius: 5px;
+  min-width: 150px;
+}
+
+.mgwt-DialogPanel-container {
+  color: #fff;
+  padding: 5px;
+}
+
+.mgwt-DialogPanel-title {
+  color: #fff;
+  background: none;
+  border: none;
+  text-align: center;
+  font-size: 19px;
+  margin-bottom: 20px;
+}
+
+.mgwt-DialogPanel-content {
+  margin: 10px;
+  text-align: center;
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-DialogPanel-footer {
+    display: -ms-flexbox;
+    -ms-flex-pack: center;
+  }
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-DialogPanel-footer {
+    display: -webkit-box;
+    /* @alternate */ display: -webkit-flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-DialogPanel-footer {
+    display: -moz-box;
+    -moz-justify-content: center;
+  }
+}
+
+.mgwt-DialogPanel-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}

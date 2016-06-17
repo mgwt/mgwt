@@ -19,7 +19,7 @@ public class CellListAndroidAppearance extends CellListAbstractAppearance {
     Resources INSTANCE = GWT.create(Resources.class);
 
     @Source({
-        "com/googlecode/mgwt/ui/client/widget/list/celllist/celllist.css", "celllist-android.css"})
+        "com/googlecode/mgwt/ui/client/widget/list/celllist/celllist.gss", "celllist-android.gss"})
     Css css();
 
     @Source("arrow.png")

@@ -1,0 +1,24 @@
+.mgwt-DialogPanel {
+  background-color: #e0e0e0;
+  color: black;
+}
+
+.mgwt-DialogPanel-container {
+  color: black;
+  padding: 0;
+}
+
+.mgwt-DialogPanel-title {
+  margin-top: 10px;
+  color: black;
+}
+
+.mgwt-DialogPanel-content {
+  padding: 10px;
+  margin: 0;
+}
+
+.mgwt-DialogPanel-footer {
+  margin: 0;
+  padding: 0;
+}

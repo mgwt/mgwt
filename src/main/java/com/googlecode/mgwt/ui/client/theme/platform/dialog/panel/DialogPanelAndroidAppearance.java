@@ -20,10 +20,10 @@ public class DialogPanelAndroidAppearance extends DialogPanelAbstractAppearance 
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/panel/dialog-button.css", "dialog-button-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/panel/dialog-button.gss", "dialog-button-android.gss"})
     CssButton css();
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/panel/dialog.css", "dialog-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/panel/dialog.gss", "dialog-android.gss"})
     CssDialog cssPanel();
   }
 

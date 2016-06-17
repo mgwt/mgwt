@@ -1,0 +1,251 @@
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-ProgressSpinner;
+}
+
+@def ANIMATION_DURATION 1s;
+
+.mgwt-ProgressSpinner {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  margin-left: 31px;
+  margin-right: 31px;
+  padding-top: 10px;
+}
+
+.mgwt-ProgressSpinner>span {
+  height: 8px;
+  width: 2px;
+  position: absolute;
+  border-radius: 2px;
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-ProgressSpinner>span:nth-child(1) {
+    -webkit-transform: translate3d(0, -10px, 0);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(2) {
+    -webkit-transform: translate3d(5px, -8.66px, 0) rotate(30deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(3) {
+    -webkit-transform: translate3d(8.66px, -5px, 0) rotate(60deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(4) {
+    -webkit-transform: translate3d(10px, 0, 0) rotate(90deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(5) {
+    -webkit-transform: translate3d(8.66px, 5px, 0) rotate(120deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(6) {
+    -webkit-transform: translate3d(5px, 8.66px, 0) rotate(150deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(7) {
+    -webkit-transform: translate3d(0, 10px, 0);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(8) {
+    -webkit-transform: translate3d(-5px, 8.66px, 0) rotate(210deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(9) {
+    -webkit-transform: translate3d(-8.66px, 5px, 0) rotate(240deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(10) {
+    -webkit-transform: translate3d(-10px, 0, 0) rotate(90deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(11) {
+    -webkit-transform: translate3d(-8.66px, -5px, 0) rotate(300deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(12) {
+    -webkit-transform: translate3d(-5px, -8.66px, 0) rotate(330deg);
+  }
+
+  .mgwt-ProgressSpinner>span {
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: ANIMATION_DURATION;
+    -webkit-animation-name: animationProgressSpinner;
+  }
+  @-webkit-keyframes animationProgressSpinner {
+    0% { background: transparent;}
+    8% { background:  #464F5D;}
+    17% { background:  #59606C;}
+    25% { background:  #656C78;}
+    33% { background:  #747B85;}
+    41% { background:  #828791;}
+    50% { background:  #8D929B;}
+    58% { background:  #A0A4AD;}
+    67% { background:  #ADB0BA;}
+    75% { background:  #BCBEC7;}
+    83% { background:  #CDCED5;}
+    92% { background:  #DCDCE4;}
+    100% { background: transparent;}	
+  }
+  .mgwt-ProgressSpinner>span:nth-child(2) {
+    -webkit-animation-delay: 0.08s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(3) {
+    -webkit-animation-delay: 0.17s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(4) {
+    -webkit-animation-delay: 0.25s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(5) {
+    -webkit-animation-delay: 0.33s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(6) {
+    -webkit-animation-delay: 0.41s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(7) {
+    -webkit-animation-delay: 0.5s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(8) {
+    -webkit-animation-delay: 0.58s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(9) {
+    -webkit-animation-delay: 0.67s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(10) {
+    -webkit-animation-delay: 0.75s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(11) {
+    -webkit-animation-delay: 0.83s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(12) {
+    -webkit-animation-delay: 0.92s;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-ProgressSpinner>span:nth-child(1) {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(2) {
+    transform: translate3d(5px, -8.66px, 0) rotate(30deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(3) {
+    transform: translate3d(8.66px, -5px, 0) rotate(60deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(4) {
+    transform: translate3d(10px, 0, 0) rotate(90deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(5) {
+    transform: translate3d(8.66px, 5px, 0) rotate(120deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(6) {
+    transform: translate3d(5px, 8.66px, 0) rotate(150deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(7) {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(8) {
+    transform: translate3d(-5px, 8.66px, 0) rotate(210deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(9) {
+    transform: translate3d(-8.66px, 5px, 0) rotate(240deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(10) {
+    transform: translate3d(-10px, 0, 0) rotate(90deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(11) {
+    transform: translate3d(-8.66px, -5px, 0) rotate(300deg);
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(12) {
+    transform: translate3d(-5px, -8.66px, 0) rotate(330deg);
+  }
+
+  .mgwt-ProgressSpinner>span {
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: ANIMATION_DURATION;
+    animation-name: animationProgressSpinner;
+  }
+  @keyframes animationProgressSpinner {
+    0% { background: transparent;}
+    8% { background:  #464F5D;}
+    17% { background:  #59606C;}
+    25% { background:  #656C78;}
+    33% { background:  #747B85;}
+    41% { background:  #828791;}
+    50% { background:  #8D929B;}
+    58% { background:  #A0A4AD;}
+    67% { background:  #ADB0BA;}
+    75% { background:  #BCBEC7;}
+    83% { background:  #CDCED5;}
+    92% { background:  #DCDCE4;}
+    100% { background: transparent;}	
+  }
+  .mgwt-ProgressSpinner>span:nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(3) {
+    animation-delay: 0.17s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(5) {
+    animation-delay: 0.33s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(6) {
+    animation-delay: 0.41s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(7) {
+    animation-delay: 0.5s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(8) {
+    animation-delay: 0.58s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(9) {
+    animation-delay: 0.67s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(10) {
+    animation-delay: 0.75s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(11) {
+    animation-delay: 0.83s;
+  }
+
+  .mgwt-ProgressSpinner>span:nth-child(12) {
+    animation-delay: 0.92s;
+  }
+}

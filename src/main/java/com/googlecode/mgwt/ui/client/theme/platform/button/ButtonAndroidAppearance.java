@@ -30,7 +30,7 @@ public class ButtonAndroidAppearance extends ButtonAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/button/button.css", "button-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/button/button.gss", "button-android.gss"})
     Css css();
   }
 

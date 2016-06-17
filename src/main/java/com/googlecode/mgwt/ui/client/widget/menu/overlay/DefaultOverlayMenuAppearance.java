@@ -34,7 +34,7 @@ public class DefaultOverlayMenuAppearance implements OverlayMenuAppearance {
 
     public static Resource INSTANCE = GWT.create(Resource.class);
 
-    @Source("overlay-menu.css")
+    @Source("overlay-menu.gss")
     public MenuCss css();
   }
 

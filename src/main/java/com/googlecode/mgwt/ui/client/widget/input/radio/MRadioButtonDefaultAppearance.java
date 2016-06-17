@@ -27,7 +27,7 @@ public class MRadioButtonDefaultAppearance extends MRadioButtonAbstractAppearanc
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"mradiobutton.css"})
+    @Source({"mradiobutton.gss"})
     MRadioButtonCss css();
 
     @Source("resources/check.png")

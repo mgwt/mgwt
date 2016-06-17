@@ -13,7 +13,7 @@ public class ScrollPanelDefaultAppearance implements ScrollPanelAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"scrollpanel.css"})
+    @Source({"scrollpanel.gss"})
     ScrollPanelCss css();
   }
   

@@ -26,7 +26,7 @@ public class SliderDefaultAppearance extends SliderAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"slider.css"})
+    @Source({"slider.gss"})
     SliderCss css();
   }
 

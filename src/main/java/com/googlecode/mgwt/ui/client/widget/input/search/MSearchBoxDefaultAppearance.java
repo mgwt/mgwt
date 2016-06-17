@@ -27,7 +27,7 @@ public class MSearchBoxDefaultAppearance extends MSearchBoxAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"searchbox.css"})
+    @Source({"searchbox.gss"})
     MSearchBoxCss css();
 
     @Source("search_mdpi.png")

@@ -17,7 +17,7 @@ public class FormIOSAppearance extends FormAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/form/form.css", "form-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/form/form.gss", "form-ios.gss"})
     Css css();
   }
 

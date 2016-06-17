@@ -47,6 +47,8 @@ under * the License.
 
   <source path="client" />
 
+  <set-configuration-property name="CssResource.enableGss" value="true" />
+
   <define-configuration-property name="mgwt.css" is-multi-valued="false" />
     <set-configuration-property name="mgwt.css" value="obf" />
 

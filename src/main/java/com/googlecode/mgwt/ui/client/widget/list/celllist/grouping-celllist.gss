@@ -1,0 +1,107 @@
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-GroupingList mgwt-GroupingList-Moving-Header;
+  @external mgwt-GroupingList-Selection-Bar mgwt-GroupingList-Selection-Bar-active;
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-GroupingList {
+    display: -webkit-box;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-GroupingList {
+    display: -ms-flexbox;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-GroupingList {
+    display: -moz-box;
+  }
+}
+
+.mgwt-GroupingList {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+.mgwt-GroupingList-Moving-Header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+@if (is("mgwt.formfactor", "desktop")) {
+  .mgwt-GroupingList-Selection-Bar {
+    cursor: pointer;
+  }
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-GroupingList-Selection-Bar {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-GroupingList-Selection-Bar {
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-GroupingList-Selection-Bar {
+    display: -moz-box;
+    -moz-box-orient: vertical;
+  }
+}
+
+.mgwt-GroupingList-Selection-Bar {
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  bottom: 20px;
+  z-index: 1;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-GroupingList-Selection-Bar>li {
+    -webkit-box-flex: 1;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-GroupingList-Selection-Bar>li {
+    -ms-flex: 1 1;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-GroupingList-Selection-Bar>li {
+    -moz-box-flex: 1;
+  }
+}
+
+.mgwt-GroupingList-Selection-Bar>li {
+  list-style-type: none;
+  font-size: 8pt;
+  font-weight: bolder;
+  flex: 1;
+}
+
+.mgwt-GroupingList-Selection-Bar-active {
+  border-radius: 10px;
+  background: rgba(100, 100, 100, 0.5);
+}
+
+.mgwt-GroupingList-Selection-Bar>li {
+  color: #555;
+}

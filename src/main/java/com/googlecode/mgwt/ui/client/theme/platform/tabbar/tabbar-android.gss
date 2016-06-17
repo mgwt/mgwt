@@ -1,0 +1,5 @@
+.mgwt-TabBar {
+  min-height: 40px;
+  background-color: inherit;
+  border-bottom: 2px solid #52a3c4;
+}

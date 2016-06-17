@@ -26,7 +26,7 @@ public class PanelDefaultAppearance extends PanelAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"panel.css"})
+    @Source({"panel.gss"})
     PanelCss css();
   }
 

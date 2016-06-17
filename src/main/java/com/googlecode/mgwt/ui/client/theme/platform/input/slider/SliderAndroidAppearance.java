@@ -30,7 +30,7 @@ public class SliderAndroidAppearance extends SliderAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/slider/slider.css", "slider-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/input/slider/slider.gss", "slider-android.gss"})
     Css css();
   }
 

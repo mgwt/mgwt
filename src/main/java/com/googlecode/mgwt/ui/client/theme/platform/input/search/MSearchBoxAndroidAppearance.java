@@ -31,7 +31,7 @@ public class MSearchBoxAndroidAppearance extends MSearchBoxAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/search/searchbox.css", "searchbox-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/input/search/searchbox.gss", "searchbox-android.gss"})
     Css css();
 
     @Source("com/googlecode/mgwt/ui/client/widget/input/search/search_mdpi.png")

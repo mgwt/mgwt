@@ -26,7 +26,7 @@ public class CarouselDefaultAppearance extends CarouselAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"carousel.css"})
+    @Source({"carousel.gss"})
     CarouselCss css();
   }
 

@@ -1,0 +1,89 @@
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-TextBox mgwt-PasswordTextBox mgwt-TextArea;
+  @external mgwt-InputBox-box mgwt-InputBox-disabled;
+  @external mgwt-InputBox-invalid;
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-TextBox,
+  .mgwt-InputBox-box,
+  .mgwt-PasswordTextBox,
+  .mgwt-InputBox-box,
+  .mgwt-TextArea,
+  .mgwt-InputBox-box {
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    -webkit-appearance: none;
+    -webkit-user-select: text;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-TextBox,
+  .mgwt-InputBox-box,
+  .mgwt-PasswordTextBox,
+  .mgwt-InputBox-box,
+  .mgwt-TextArea,
+  .mgwt-InputBox-box {
+    display: -ms-flexbox;
+    -ms-flex: 1 1;
+    -ms-user-select: text;
+  }
+
+  textarea.mgwt-InputBox-box {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-TextBox,
+  .mgwt-InputBox-box,
+  .mgwt-PasswordTextBox,
+  .mgwt-InputBox-box,
+  .mgwt-TextArea,
+  .mgwt-InputBox-box {
+    display: -moz-box;
+    -moz-box-flex: 1;
+    -moz-appearance: none;
+    -moz-user-select: text;
+  }
+}
+
+.mgwt-TextBox,
+.mgwt-InputBox-box,
+.mgwt-PasswordTextBox,
+.mgwt-InputBox-box,
+.mgwt-TextArea,
+.mgwt-InputBox-box {
+  color: #777;
+  border: 0;
+  font: normal 17px Helvetica;
+  padding: 0;
+  display: flex;
+  flex: 1;
+  margin-left: 0;
+  background-color: #e5e9e8;
+  position: relative;
+}
+
+.mgwt-InputBox-disabled {
+  color: #ccc;
+}
+
+.mgwt-InputBox-disabled::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+.mgwt-InputBox-invalid {
+  color: #c50303;
+}
+
+.mgwt-InputBox-invalid::-webkit-input-placeholder {
+  color: #c50303;
+}
+
+.mgwt-TextBox-fix-white-background-bug-android43 {
+  -webkit-user-modify: read-write-plaintext-only;
+}

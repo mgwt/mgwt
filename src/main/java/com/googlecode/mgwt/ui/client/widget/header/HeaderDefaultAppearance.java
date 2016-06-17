@@ -29,10 +29,10 @@ public class HeaderDefaultAppearance extends HeaderAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"header.css"})
+    @Source({"header.gss"})
     HeaderPanelCss cssPanel();
 
-    @Source({"header-title.css"})
+    @Source({"header-title.gss"})
     HeaderTitleCss cssTitle();
   }
 

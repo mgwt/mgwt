@@ -31,7 +31,7 @@ public class MRadioButtonAndroidAppearance extends MRadioButtonAbstractAppearanc
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/radio/mradiobutton.css", "mradiobutton-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/input/radio/mradiobutton.gss", "mradiobutton-android.gss"})
     Css css();
 
     @Source("resources/check_android_checked.png")

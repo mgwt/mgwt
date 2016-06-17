@@ -28,7 +28,7 @@ public class WidgetListDefaultAppearance extends WidgetListAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"widgetlist.css"})
+    @Source({"widgetlist.gss"})
     WidgetListCss css();
   }
 

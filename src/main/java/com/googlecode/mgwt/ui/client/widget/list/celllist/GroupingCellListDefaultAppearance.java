@@ -30,10 +30,10 @@ public class GroupingCellListDefaultAppearance extends GroupingCellListAbstractA
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"celllist.css"})
+    @Source({"celllist.gss"})
     CellListCss css();
 
-    @Source({"grouping-celllist.css"})
+    @Source({"grouping-celllist.gss"})
     GroupingListCss groupCss();
 
     @Source("arrow.png")

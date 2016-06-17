@@ -9,7 +9,7 @@ import com.googlecode.mgwt.ui.client.widget.animation.Animation;
 public class FlipAnimation extends AnimationBase {
 
   interface Bundle extends ClientBundle {
-    @Source({"flip.css"})
+    @Source({"flip.gss"})
     CSS css();
   }
 

@@ -29,4 +29,5 @@
     <inherits name='com.googlecode.mgwt.dom.DOM'/>
     <inherits name='com.googlecode.mgwt.ui.UI'/>
     <inherits name='com.googlecode.mgwt.mvp.MVP'/>
+    <set-configuration-property name="CssResource.enableGss" value="true" />
 </module>

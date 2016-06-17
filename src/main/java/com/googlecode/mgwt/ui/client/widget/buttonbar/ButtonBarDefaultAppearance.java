@@ -28,7 +28,7 @@ public class ButtonBarDefaultAppearance extends ButtonBarAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"buttonbar.css"})
+    @Source({"buttonbar.gss"})
     ButtonBarCss barCss();
   }
 

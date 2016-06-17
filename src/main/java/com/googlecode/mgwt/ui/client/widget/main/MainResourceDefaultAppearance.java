@@ -84,15 +84,15 @@ public class MainResourceDefaultAppearance implements MainResourceAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"main.css"})
+    @Source({"main.gss"})
     MainCss css();
 
-    @Source({"selection.css"})
+    @Source({"selection.gss"})
     SelectionCss selectionCss();
 
     // This is a very nasty workaround because GWT CssResource does not support
     // @media correctly!
-    @Source("util.css")
+    @Source("util.gss")
     TextResource utilTextResource();
   }
 

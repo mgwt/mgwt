@@ -30,7 +30,7 @@ public class ButtonIOSAppearance extends ButtonAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/button/button.css", "button-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/button/button.gss", "button-ios.gss"})
     Css css();
   }
 

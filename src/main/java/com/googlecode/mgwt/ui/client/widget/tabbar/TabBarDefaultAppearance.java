@@ -14,9 +14,9 @@ public class TabBarDefaultAppearance extends TabBarAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"tabbar.css"})
+    @Source({"tabbar.gss"})
     TabBarCss barCss();
-    @Source({"tabbar-button.css"})
+    @Source({"tabbar-button.gss"})
     TabBarButtonCss css();
   }
 

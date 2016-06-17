@@ -19,11 +19,11 @@ public class HeaderAndroidAppearance extends HeaderAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/header/header.css", "header-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/header/header.gss", "header-android.gss"})
     CssPanel cssPanel();
 
     @Source({
-        "com/googlecode/mgwt/ui/client/widget/header/header-title.css", "header-title-android.css"})
+        "com/googlecode/mgwt/ui/client/widget/header/header-title.gss", "header-title-android.gss"})
     CssTitle cssTitle();
   }
 

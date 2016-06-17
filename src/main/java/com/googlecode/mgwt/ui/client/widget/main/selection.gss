@@ -1,0 +1,91 @@
+@if (is("mgwt.css", "pretty")) {
+  @external userSelectNone userSelectText userSelectAll userSelectElement;
+}
+
+@if (is("user.agent", "safari")) {
+  .userSelectNone {
+    -webkit-user-select: none;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .userSelectNone {
+    -ms-user-select: none;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .userSelectNone {
+    -moz-user-select: none;
+  }
+}
+
+.userSelectNone {
+  user-select: none;
+}
+
+@if (is("user.agent", "safari")) {
+  .userSelectText {
+    -webkit-user-select: text;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .userSelectText {
+    -ms-user-select: text;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .userSelectText {
+    -moz-user-select: text;
+  }
+}
+
+.userSelectText {
+  user-select: text;
+}
+
+@if (is("user.agent", "safari")) {
+  .userSelectAll {
+    -webkit-user-select: all;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .userSelectAll {
+    -ms-user-select: all;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .userSelectAll {
+    -moz-user-select: all;
+  }
+}
+
+.userSelectAll {
+  user-select: all;
+}
+
+@if (is("user.agent", "safari")) {
+  .userSelectElement {
+    -webkit-user-select: element;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .userSelectElement {
+    -ms-user-select: element;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .userSelectElement {
+    -moz-user-select: element;
+  }
+}
+
+.userSelectElement {
+  user-select: element;
+}

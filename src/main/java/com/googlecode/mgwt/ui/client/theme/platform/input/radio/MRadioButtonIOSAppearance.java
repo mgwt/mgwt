@@ -31,7 +31,7 @@ public class MRadioButtonIOSAppearance extends MRadioButtonAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/radio/mradiobutton.css", "mradiobutton-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/input/radio/mradiobutton.gss", "mradiobutton-ios.gss"})
     Css css();
 
     @Source("resources/ios_check.png")

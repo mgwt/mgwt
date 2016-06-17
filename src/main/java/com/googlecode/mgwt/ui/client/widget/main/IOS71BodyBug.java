@@ -41,7 +41,7 @@ public class IOS71BodyBug {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"ios71bodybug.css"})
+    @Source({"ios71bodybug.gss"})
     TextResource css();
   }
 

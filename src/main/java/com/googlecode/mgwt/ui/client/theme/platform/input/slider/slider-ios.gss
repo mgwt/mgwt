@@ -1,0 +1,18 @@
+.mgwt-Slider-bar {
+  position: relative;
+  background-color: #0641fe;
+  height: 2px;
+  border: none;
+}
+
+.mgwt-Slider-pointer {
+  position: relative;
+  height: 28px;
+  width: 28px;
+  border-radius: 15px;
+  top: -14.5px;
+  left: -15px;
+  border-color: #eaeaea;
+  box-shadow: -0.6px 2.5px 4px #c5c5c5;
+  background-color: white;
+}

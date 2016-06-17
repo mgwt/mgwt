@@ -13,7 +13,7 @@ public class MainResourceAppearancePlatform extends MainResourceDefaultAppearanc
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/main/main.css", "main.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/main/main.gss", "main.gss"})
     Css css();
   }
 

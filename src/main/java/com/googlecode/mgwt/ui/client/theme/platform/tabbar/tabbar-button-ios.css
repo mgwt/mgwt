@@ -1,6 +1,0 @@
-@def BUTTON_BACKGROUND_COLOR #7E7F7E;
-@def BUTTON_BACKGROUND_SELECTED_COLOR #0D66FB;
-
-.mgwt-TabBar-Button-selected .mgwt-TabBar-Button-text {
-  color: BUTTON_BACKGROUND_SELECTED_COLOR;
-}

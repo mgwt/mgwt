@@ -17,7 +17,7 @@ public class ImageButtonIOSAppearance extends ImageButtonAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/button/imagebutton.css", "imagebutton-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/button/imagebutton.gss", "imagebutton-ios.gss"})
     Css css();
   }
 
