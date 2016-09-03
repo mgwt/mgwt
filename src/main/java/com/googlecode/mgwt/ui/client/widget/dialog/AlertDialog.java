@@ -17,7 +17,6 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHTML;
 import com.google.gwt.user.client.ui.HasText;
-
 import com.googlecode.mgwt.dom.client.event.tap.HasTapHandlers;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
 import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
@@ -35,6 +34,13 @@ public class AlertDialog implements HasText, HasTitleText, HasTapHandlers, Dialo
   private HTML textLabel;
   private PopinDialogOverlay popinDialog;
   private DialogPanel dialogPanel;
+
+  /**
+   * Construct an alert dialog
+   */
+  public AlertDialog() {
+    this(DialogPanel.DEFAULT_APPEARANCE, null, null);
+  }
 
   /**
    * Construct an alert dialog
@@ -104,12 +110,17 @@ public class AlertDialog implements HasText, HasTitleText, HasTapHandlers, Dialo
 
   }
 
+  public void setButtonText(String buttonText) {
+	 dialogPanel.setOkButtonText(buttonText);
+  }
+
   @Override
   public String getTitleText() {
     return dialogPanel.getDialogTitle().getText();
   }
 
-  public void show() {
+  @Override
+public void show() {
     popinDialog.center();
   }
 
