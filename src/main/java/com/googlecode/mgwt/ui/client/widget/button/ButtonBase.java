@@ -32,13 +32,13 @@ import com.googlecode.mgwt.ui.client.widget.touch.TouchWidget;
  */
 public abstract class ButtonBase extends TouchWidget implements HasText {
 
-  private boolean active;
+  protected boolean active;
   // a temp fix where we no longer add the default touch handlers to the button
   // until a call is made to set the element for the widget. This is required since
   // it is not possible to add a bitless dom handler until the element has been set
-  private boolean defaultHandlersAdded;
+  protected boolean defaultHandlersAdded;
   
-  private final ButtonBaseAppearance baseAppearance;
+  protected final ButtonBaseAppearance baseAppearance;
 
   /**
    * Construct a button with a given element and css
@@ -69,21 +69,21 @@ public abstract class ButtonBase extends TouchWidget implements HasText {
     super.setElement(elem);
     
     if (!defaultHandlersAdded) {
-    
+
       addTouchHandler(new TouchHandler() {
 
         @Override
         public void onTouchCancel(TouchCancelEvent event) {
-          event.stopPropagation();
-          event.preventDefault();
+          //event.stopPropagation();
+          //event.preventDefault();
           removeStyleName(ButtonBase.this.baseAppearance.css().active());
           active = false;
         }
 
         @Override
         public void onTouchEnd(TouchEndEvent event) {
-          event.stopPropagation();
-          event.preventDefault();
+          //event.stopPropagation();
+          //event.preventDefault();
           removeStyleName(ButtonBase.this.baseAppearance.css().active());
           if (event instanceof SimulatedTouchEndEvent) {
             DOM.releaseCapture(getElement());
@@ -93,14 +93,14 @@ public abstract class ButtonBase extends TouchWidget implements HasText {
 
         @Override
         public void onTouchMove(TouchMoveEvent event) {
-          event.preventDefault();
-          event.stopPropagation();
+          //event.preventDefault();
+          //event.stopPropagation();
         }
 
         @Override
         public void onTouchStart(TouchStartEvent event) {
-          event.stopPropagation();
-          event.preventDefault();
+          //event.stopPropagation();
+          //event.preventDefault();
           addStyleName(ButtonBase.this.baseAppearance.css().active());
           if (event instanceof SimulatedTouchStartEvent) {
             DOM.setCapture(getElement());
@@ -108,7 +108,7 @@ public abstract class ButtonBase extends TouchWidget implements HasText {
           active = true;
         }
       });
-      
+
       addTapHandler(new TapHandler() {
 
         @Override
