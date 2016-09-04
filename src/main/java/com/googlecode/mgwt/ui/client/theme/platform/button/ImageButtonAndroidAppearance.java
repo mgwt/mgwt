@@ -17,7 +17,7 @@ public class ImageButtonAndroidAppearance extends ImageButtonAbstractAppearance 
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/button/imagebutton.css", "imagebutton-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/button/imagebutton.gss", "imagebutton-android.gss"})
     Css css();
   }
 

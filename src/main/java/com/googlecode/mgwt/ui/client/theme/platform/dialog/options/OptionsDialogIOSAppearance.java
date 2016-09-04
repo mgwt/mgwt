@@ -31,7 +31,7 @@ public class OptionsDialogIOSAppearance extends DialogOverlayDefaultAppearance i
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/options/options-dialog.css", "options-dialog-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/options/options-dialog.gss", "options-dialog-ios.gss"})
     Css css();
   }
 

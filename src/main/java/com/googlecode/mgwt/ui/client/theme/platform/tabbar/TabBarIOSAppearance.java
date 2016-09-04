@@ -35,9 +35,9 @@ public class TabBarIOSAppearance extends TabBarAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/tabbar/tabbar.css", "tabbar-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/tabbar/tabbar.gss", "tabbar-ios.gss"})
     CssBar barCss();
-    @Source({"com/googlecode/mgwt/ui/client/widget/tabbar/tabbar-button.css", "tabbar-button-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/tabbar/tabbar-button.gss", "tabbar-button-ios.gss"})
     CssButton css();
   }
 

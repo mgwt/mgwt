@@ -29,7 +29,7 @@ public class PullPanelDefaultAppearance extends PullPanelAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"pullpanel.css"})
+    @Source({"pullpanel.gss"})
     PullPanelCss css();
 
     @Source("nextslide.png")

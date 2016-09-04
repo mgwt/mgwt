@@ -1,0 +1,5 @@
+.mgwt-TabBar {
+  height: 48px;
+  background: #f5f5f5;
+  border-top: 1px solid #b4b4b7;
+}

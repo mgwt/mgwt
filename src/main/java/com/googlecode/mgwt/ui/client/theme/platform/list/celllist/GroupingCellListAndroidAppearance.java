@@ -21,12 +21,12 @@ public class GroupingCellListAndroidAppearance extends GroupingCellListAbstractA
     Resources INSTANCE = GWT.create(Resources.class);
 
     @Source({
-        "com/googlecode/mgwt/ui/client/widget/list/celllist/celllist.css", "celllist-android.css"})
+        "com/googlecode/mgwt/ui/client/widget/list/celllist/celllist.gss", "celllist-android.gss"})
     Css css();
 
     @Source({
-        "com/googlecode/mgwt/ui/client/widget/list/celllist/grouping-celllist.css",
-        "grouping-celllist-android.css"})
+        "com/googlecode/mgwt/ui/client/widget/list/celllist/grouping-celllist.gss",
+        "grouping-celllist-android.gss"})
     CssGroup groupCss();
 
     @Source("arrow.png")

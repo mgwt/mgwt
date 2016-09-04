@@ -1,0 +1,3 @@
+.mgwt-GroupingList-Selection-Bar>li {
+  color: #0c5ffe;
+}

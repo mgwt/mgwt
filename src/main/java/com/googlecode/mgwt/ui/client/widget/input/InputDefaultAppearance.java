@@ -28,7 +28,7 @@ public class InputDefaultAppearance implements InputAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"input.css"})
+    @Source({"input.gss"})
     InputCss css();
   }
 

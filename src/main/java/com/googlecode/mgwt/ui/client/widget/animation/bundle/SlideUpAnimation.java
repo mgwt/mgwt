@@ -9,7 +9,7 @@ import com.googlecode.mgwt.ui.client.widget.animation.Animation;
 public class SlideUpAnimation extends AnimationBase {
 
   interface Bundle extends ClientBundle {
-    @Source({"slide-up.css"})
+    @Source({"slide-up.gss"})
     CSS css();
   }
 

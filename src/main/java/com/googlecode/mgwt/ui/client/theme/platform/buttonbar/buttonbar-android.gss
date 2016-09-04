@@ -1,0 +1,6 @@
+.mgwt-ButtonBar {
+  height: 49px;
+  background-color: transparent;
+  border-top: 2px solid #52a3c4;
+  color: white;
+}

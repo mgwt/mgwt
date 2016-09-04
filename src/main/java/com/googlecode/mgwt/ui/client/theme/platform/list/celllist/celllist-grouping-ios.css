@@ -1,7 +1,0 @@
-.mgwt-List-entry-canbeSelected {
-  background-position: literal('calc(100% - 22px) 50%');
-}
-
-.mgwt-List-entry-canbeSelected.mgwt-List-entry-selected {
-  background-position: literal('calc(100% - 22px) 50%');
-}

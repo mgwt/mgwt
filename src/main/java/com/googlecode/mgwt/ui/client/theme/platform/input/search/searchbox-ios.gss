@@ -1,0 +1,72 @@
+.mgwt-SearchBox {
+  background-color: #b0b4c0;
+  background-size: 100% 44px;
+  background-repeat: repeat;
+  background-position: 0 0;
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-SearchBox {
+    background-color: #c9c9ce;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-SearchBox {
+    background-image: -moz-linear-gradient(bottom, #A8ACB9, #eee);
+  }
+}
+
+@if (is("user.agent", "ie9") || is("user.agent", "ie10")) {
+  .mgwt-SearchBox {
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhOGFjYjkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  }
+}
+
+.mgwt-SearchBox-round {
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.mgwt-SearchBox-input {
+  font-family: HelveticaNeue-Light;
+  font-size: 16px;
+  color: #64636b;
+  top: 2px;
+}
+
+.mgwt-SearchBox-icon {
+  top: 10px;
+  left: 8px;
+}
+
+@if (is("mgwt.density", "high")) {
+  .mgwt-SearchBox-icon {
+    -webkit-mask-size: 17px 17px;
+  }
+}
+
+@if (is("mgwt.density", "xhigh")) {
+  .mgwt-SearchBox-icon {
+    -webkit-mask-size: 12px 12px;
+  }
+}
+
+.mgwt-SearchBox-clear {
+  top: 1px;
+  right: 0;
+}
+
+@if (is("mgwt.density", "high")) {
+  .mgwt-SearchBox-clear {
+    -webkit-mask-size: 19px 19px;
+  }
+}
+
+@if (is("mgwt.density", "xhigh")) {
+  .mgwt-SearchBox-clear {
+    -webkit-mask-size: 14px 14px;
+  }
+}

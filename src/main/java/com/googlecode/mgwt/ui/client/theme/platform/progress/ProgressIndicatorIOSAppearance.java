@@ -33,7 +33,7 @@ public class ProgressIndicatorIOSAppearance implements
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({ "com/googlecode/mgwt/ui/client/widget/progress/progressspinner.css" })
+    @Source({ "com/googlecode/mgwt/ui/client/widget/progress/progressspinner.gss" })
     Css css();
   }
 

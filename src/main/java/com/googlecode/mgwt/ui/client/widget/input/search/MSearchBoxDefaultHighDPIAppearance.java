@@ -27,7 +27,7 @@ public class MSearchBoxDefaultHighDPIAppearance extends MSearchBoxAbstractAppear
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"searchbox.css"})
+    @Source({"searchbox.gss"})
     MSearchBoxCss css();
 
     @Source("search_hdpi.png")

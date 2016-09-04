@@ -17,7 +17,7 @@ public class ButtonBarIOSAppearance extends ButtonBarAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/buttonbar/buttonbar.css", "buttonbar-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/buttonbar/buttonbar.gss", "buttonbar-ios.gss"})
     Css barCss();
   }
 

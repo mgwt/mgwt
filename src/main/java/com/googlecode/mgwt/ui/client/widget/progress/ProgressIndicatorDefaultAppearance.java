@@ -28,7 +28,7 @@ public class ProgressIndicatorDefaultAppearance extends ProgressIndicatorAbstrac
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"progressindicator.css"})
+    @Source({"progressindicator.gss"})
     ProgressIndicatorCss css();
   }
 

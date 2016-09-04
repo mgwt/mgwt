@@ -17,7 +17,7 @@ public class InputAndroidAppearance implements InputAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/input.css", "input-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/input/input.gss", "input-android.gss"})
     Css css();
   }
 

@@ -24,7 +24,7 @@ public class MCheckBoxAndroidAppearance implements MCheckBoxAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/checkbox/checkbox.css", "checkbox-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/input/checkbox/checkbox.gss", "checkbox-android.gss"})
     Css css();
   }
 

@@ -28,7 +28,7 @@ public class DialogOverlayDefaultAppearance implements DialogOverlayAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"dialog-overlay.css"})
+    @Source({"dialog-overlay.gss"})
     DialogOverlayCss css();
   }
 

@@ -16,4 +16,5 @@ under the License.
   <replace-with class="com.googlecode.mgwt.ui.client.widget.input.radio.MRadioButtonDefaultAppearance">
     <when-type-is class="com.googlecode.mgwt.ui.client.widget.input.radio.MRadioButtonAppearance" />
   </replace-with>
+
 </module>

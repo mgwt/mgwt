@@ -30,7 +30,7 @@ public class SliderIOSAppearance extends SliderAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/slider/slider.css", "slider-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/input/slider/slider.gss", "slider-ios.gss"})
     Css css();
   }
 

@@ -19,7 +19,7 @@ public class MCheckBoxIOSAppearance extends MCheckBoxAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/checkbox/checkbox.css", "checkbox-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/input/checkbox/checkbox.gss", "checkbox-ios.gss"})
     IOSCheckBoxCss css();
   }
 

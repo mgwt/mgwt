@@ -31,7 +31,7 @@ public class PullPanelAndroidAppearance extends PullPanelAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/panel/pull/pullpanel.css", "pullpanel-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/panel/pull/pullpanel.gss", "pullpanel-android.gss"})
     PullPanelCss css();
 
     @Source("com/googlecode/mgwt/ui/client/widget/panel/pull/nextslide.png")

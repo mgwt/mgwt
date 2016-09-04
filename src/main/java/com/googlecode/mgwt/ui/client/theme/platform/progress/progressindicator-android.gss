@@ -1,0 +1,4 @@
+.mgwt-ProgressIndicator>span {
+  background-color: #62b3d4;
+  border: none;
+}

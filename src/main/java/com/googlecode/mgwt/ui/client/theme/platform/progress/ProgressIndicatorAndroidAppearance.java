@@ -17,7 +17,7 @@ public class ProgressIndicatorAndroidAppearance extends ProgressIndicatorAbstrac
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/progress/progressindicator.css", "progressindicator-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/progress/progressindicator.gss", "progressindicator-android.gss"})
     Css css();
   }
 

@@ -28,7 +28,7 @@ public class FlexPanelDefaultAppearance implements FlexPanelAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"flex.css"})
+    @Source({"flex.gss"})
     FlexPanelCss css();
   }
 

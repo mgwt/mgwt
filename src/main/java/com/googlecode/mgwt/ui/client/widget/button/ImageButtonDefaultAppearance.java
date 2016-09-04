@@ -26,7 +26,7 @@ public class ImageButtonDefaultAppearance extends ImageButtonAbstractAppearance 
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"imagebutton.css"})
+    @Source({"imagebutton.gss"})
     ImageButtonCss css();
   }
 

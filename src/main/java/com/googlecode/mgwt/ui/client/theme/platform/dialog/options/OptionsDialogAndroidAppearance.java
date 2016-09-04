@@ -31,7 +31,7 @@ public class OptionsDialogAndroidAppearance extends DialogOverlayDefaultAppearan
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/options/options-dialog.css", "options-dialog-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/options/options-dialog.gss", "options-dialog-android.gss"})
     Css css();
   }
 

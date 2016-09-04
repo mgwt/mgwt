@@ -17,8 +17,8 @@ public class ButtonBarAndroidAppearance extends ButtonBarAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/buttonbar/buttonbar.css",
-        "buttonbar-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/buttonbar/buttonbar.gss",
+        "buttonbar-android.gss"})
     Css barCss();
   }
 

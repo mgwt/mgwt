@@ -26,7 +26,7 @@ public class MCheckBoxDefaultAppearance extends MCheckBoxAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"checkbox.css"})
+    @Source({"checkbox.gss"})
     CheckBoxCss css();
   }
 

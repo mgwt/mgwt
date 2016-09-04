@@ -17,7 +17,7 @@ public class PanelIOSAppearance extends PanelAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"panel-ios.css"})
+    @Source({"panel-ios.gss"})
     Css css();
   }
 

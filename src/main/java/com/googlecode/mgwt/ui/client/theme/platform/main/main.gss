@@ -1,0 +1,36 @@
+@if (is("mgwt.os", "ios")) {
+  body {
+    background-color: #ecebf1;
+  }
+}
+
+@if (is("mgwt.os", "android")) {
+  body {
+    background-attachment: fixed;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#000000), to(rgb(46, 54, 60)));
+    color: white;
+  }
+
+  body::before {
+    background-attachment: fixed;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#000000), to(rgb(46, 54, 60)));
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: " ";
+  }
+
+  @if (is("user.agent", "safari")) {
+    body {
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#000000), to(rgb(46, 54, 60)));
+    }
+  }
+
+  @if (is("user.agent", "gecko1_8")) {
+    body {
+      background-image: -moz-linear-gradient(top, #000000, rgb(46, 54, 60));
+    }
+  }
+}

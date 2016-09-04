@@ -17,7 +17,7 @@ public class WidgetListAndroidAppearance extends WidgetListAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/list/widgetlist/widgetlist.css", "widgetlist-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/list/widgetlist/widgetlist.gss", "widgetlist-android.gss"})
     Css css();
   }
 

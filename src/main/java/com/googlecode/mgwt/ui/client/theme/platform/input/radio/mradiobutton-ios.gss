@@ -1,0 +1,37 @@
+@def CHECK_IMAGE resourceUrl("inputCheckImage");
+
+.mgwt-RadioButton-input {
+  width: 18px;
+  height: 18px;
+  border: none;
+  background-color: transparent;
+  background-image: CHECK_IMAGE;
+  opacity: 0.2;
+}
+
+.mgwt-RadioButton-input:CHECKED {
+  background-image: CHECK_IMAGE;
+  opacity: 1;
+  background-color: transparent;
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-RadioButton-input {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .mgwt-RadioButton-input:CHECKED {
+    -webkit-appearance: none;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-RadioButton-input {
+    -moz-appearance: none !important;
+  }
+
+  .mgwt-RadioButton-input:CHECKED {
+    -moz-appearance: none !important;
+  }
+}

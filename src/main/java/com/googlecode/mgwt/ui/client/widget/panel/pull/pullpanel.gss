@@ -1,0 +1,99 @@
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-PullPanel mgwt-PullPanel-container mgwt-PullPanel-main;
+  @external mgwt-PullToRefresh mgwt-PullToRefresh-arrow;
+  @external mgwt-PullToRefresh-spinner mgwt-PullToRefresh-error;
+  @external mgwt-PullToRefresh-text mgwt-PullToRefresh-arrowFooter;
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-PullPanel {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-PullPanel {
+    -ms-flex: 1 1;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-PullPanel {
+    -moz-flex: 1;
+  }
+}
+
+.mgwt-PullPanel {
+  flex: 1;
+  overflow: hidden;
+}
+
+.mgwt-PullPanel-container {
+}
+
+.mgwt-PullPanel-main {
+}
+
+.mgwt-PullToRefresh {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+}
+
+.mgwt-PullToRefresh-arrow {
+  gwt-sprite: "getButtonBarNextSlideImage";
+}
+
+.mgwt-PullToRefresh-arrow {
+  position: absolute;
+  margin-left: 50px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-PullToRefresh-arrow {
+    -webkit-transform-origin: 12px 9px;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-PullToRefresh-arrow {
+    transform-origin: 12px 9px;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-PullToRefresh-arrow {
+    -moz-transform-origin: 12px 9px;
+  }
+}
+
+.mgwt-PullToRefresh-spinner {
+  top: 18px;
+  left: 15px;
+  position: absolute !important;
+}
+
+.mgwt-PullToRefresh-error {
+  gwt-sprite: "errorImage";
+  position: absolute;
+  margin-left: 50px;
+  top: 15px;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+}
+
+.mgwt-PullToRefresh-text {
+  position: absolute;
+  top: 20px;
+  left: 110px;
+  display: inline-block;
+  font-size: 20px;
+}

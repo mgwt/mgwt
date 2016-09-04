@@ -29,7 +29,7 @@ public class MSearchBoxIOSXHighDPIAppearance extends MSearchBoxAbstractAppearanc
 
   interface Resources extends ClientBundle {
     Resources INSTANCE = GWT.create(Resources.class);
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/search/searchbox.css", "searchbox-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/input/search/searchbox.gss", "searchbox-ios.gss"})
     Css css();
 
     @Source("com/googlecode/mgwt/ui/client/widget/input/search/search_xhdpi.png")

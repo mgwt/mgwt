@@ -16,7 +16,7 @@ public class ProgressSpinnerDefaultAppearance extends ProgressSpinnerAbstractApp
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"progressspinner.css"})
+    @Source({"progressspinner.gss"})
     ProgressSpinnerCss css();
   }
 

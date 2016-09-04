@@ -13,7 +13,7 @@ public class FormDefaultAppearance extends FormAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"form.css"})
+    @Source({"form.gss"})
     FormCss css();
   }
 

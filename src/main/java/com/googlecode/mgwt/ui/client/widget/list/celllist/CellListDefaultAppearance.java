@@ -29,7 +29,7 @@ public class CellListDefaultAppearance extends CellListAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"celllist.css"})
+    @Source({"celllist.gss"})
     CellListCss css();
 
     @Source("arrow.png")

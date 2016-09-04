@@ -19,10 +19,10 @@ public class HeaderIOSAppearance extends HeaderAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/header/header.css", "header-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/header/header.gss", "header-ios.gss"})
     CssPanel cssPanel();
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/header/header-title.css", "header-title-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/header/header-title.gss", "header-title-ios.gss"})
     CssTitle cssTitle();
   }
 

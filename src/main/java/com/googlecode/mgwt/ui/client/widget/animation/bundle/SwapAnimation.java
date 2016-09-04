@@ -9,7 +9,7 @@ import com.googlecode.mgwt.ui.client.widget.animation.Animation;
 public class SwapAnimation extends AnimationBase {
 
   interface Bundle extends ClientBundle {
-    @Source({"swap.css"})
+    @Source({"swap.gss"})
     CSS css();
   }
 

@@ -20,10 +20,10 @@ public class DialogPanelIOSAppearance extends DialogPanelAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/panel/dialog-button.css", "dialog-button-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/panel/dialog-button.gss", "dialog-button-ios.gss"})
     CssButton css();
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/panel/dialog.css", "dialog-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/dialog/panel/dialog.gss", "dialog-ios.gss"})
     CssDialog cssPanel();
   }
 

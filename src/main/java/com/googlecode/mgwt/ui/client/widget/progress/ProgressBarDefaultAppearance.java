@@ -28,7 +28,7 @@ public class ProgressBarDefaultAppearance extends ProgressBarAbstractAppearance 
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"progressbar.css"})
+    @Source({"progressbar.gss"})
     ProgressBarCss css();
   }
 

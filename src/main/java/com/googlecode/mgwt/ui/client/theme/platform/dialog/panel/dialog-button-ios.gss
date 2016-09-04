@@ -1,0 +1,26 @@
+.mgwt-DialogButton {
+  background-color: #e1e1e1;
+  color: #0d66fb;
+  border: none;
+  border-top: 1px solid #b2b2b1;
+  border-right: 1px solid #b2b2b1;
+  border-radius: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.mgwt-DialogButton:last-child {
+  border-right: none;
+}
+
+.mgwt-DialogButton-ok,
+.mgwt-DialogButton-cancel {
+}
+
+.mgwt-DialogButton-active {
+  background-color: #d0d0d0;
+  box-shadow: none;
+}

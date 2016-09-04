@@ -17,7 +17,7 @@ public class InputIOSAppearance implements InputAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/input/input.css", "input-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/input/input.gss", "input-ios.gss"})
     Css css();
   }
 

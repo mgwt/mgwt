@@ -1,0 +1,78 @@
+@if (!is("user.agent", "ie10")) {
+  .in,
+  .out {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-duration: 0.65s;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+  }
+
+  .in {
+    -webkit-animation-name: flipinfromleft;
+  }
+
+  .out {
+    -webkit-animation-name: flipouttoleft;
+  }
+
+  .in.reverse {
+    -webkit-animation-name: flipinfromright;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .out.reverse {
+    -webkit-animation-name: flipouttoright;
+    -webkit-backface-visibility: hidden;
+  }
+  @-webkit-keyframes flipinfromright {
+    from { -webkit-transform: rotateY(-180deg) scale(.8); }
+    to { -webkit-transform: rotateY(0) scale(1); }
+  }@-webkit-keyframes flipinfromleft {
+    from { -webkit-transform: rotateY(180deg) scale(.8); }
+    to { -webkit-transform: rotateY(0) scale(1); }
+  }@-webkit-keyframes flipouttoleft {
+    from { -webkit-transform: rotateY(0) scale(1); }
+    to { -webkit-transform: rotateY(-180deg) scale(.8); }
+  }@-webkit-keyframes flipouttoright {
+    from { -webkit-transform: rotateY(0) scale(1); }
+    to { -webkit-transform: rotateY(180deg) scale(.8); }
+  }}
+
+@if (is("user.agent", "ie10")) {
+  .in,
+  .out {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    animation-duration: 0.65s;
+    backface-visibility: hidden;
+  }
+
+  .in {
+    animation-name: flipinfromleft;
+  }
+
+  .out {
+    animation-name: flipouttoleft;
+  }
+
+  .in.reverse {
+    animation-name: flipinfromright;
+  }
+
+  .out.reverse {
+    animation-name: flipouttoright;
+  }
+  @keyframes flipinfromright {
+    from { transform: rotateY(-180deg) scale(.8); }
+    to { transform: rotateY(0) scale(1); }
+  }@keyframes flipinfromleft {
+    from { transform: rotateY(180deg) scale(.8); }
+    to { transform: rotateY(0) scale(1); }
+  }@keyframes flipouttoleft {
+    from { transform: rotateY(0) scale(1); }
+    to { transform: rotateY(-180deg) scale(.8); }
+  }@keyframes flipouttoright {
+    from { transform: rotateY(0) scale(1); }
+    to { transform: rotateY(180deg) scale(.8); }
+  }}

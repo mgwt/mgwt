@@ -1,0 +1,12 @@
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-HeaderPanel-title;
+}
+
+.mgwt-HeaderPanel-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-size: 16pt;
+  font-weight: bold;
+}

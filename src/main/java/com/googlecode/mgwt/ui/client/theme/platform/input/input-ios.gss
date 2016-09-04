@@ -1,0 +1,25 @@
+.mgwt-TextBox,
+.mgwt-InputBox-box,
+.mgwt-PasswordTextBox,
+.mgwt-InputBox-box,
+.mgwt-TextArea,
+.mgwt-InputBox-box {
+  color: #151515;
+  background-color: white;
+}
+
+.mgwt-InputBox-disabled {
+  color: #ccc;
+}
+
+.mgwt-InputBox-disabled::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+.mgwt-InputBox-invalid {
+  color: #c50303;
+}
+
+.mgwt-InputBox-invalid::-webkit-input-placeholder {
+  color: #c50303;
+}

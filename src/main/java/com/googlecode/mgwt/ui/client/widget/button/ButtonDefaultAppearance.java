@@ -26,7 +26,7 @@ public class ButtonDefaultAppearance extends ButtonAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"button.css"})
+    @Source({"button.gss"})
     ButtonCss css();
   }
 

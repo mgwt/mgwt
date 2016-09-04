@@ -1,0 +1,39 @@
+.mgwt-Button {
+  border: none;
+  color: #0c63fe;
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+.mgwt-Button-active {
+  color: #0c63fe;
+}
+
+.mgwt-Button-important {
+  color: #fa2619;
+}
+
+.mgwt-Button-confirm {
+  color: #41d452;
+  border: none;
+}
+
+.mgwt-Button-disabled {
+  color: #808080;
+}
+
+.mgwt-Button.mgwt-Button-active {
+  background-color: white;
+  box-shadow: none;
+}
+
+.mgwt-Button-important.mgwt-Button-active {
+  background-color: white;
+  box-shadow: none;
+}
+
+.mgwt-Button-confirm.mgwt-Button-active {
+  background-color: white;
+  color: #41d452;
+  box-shadow: none;
+}

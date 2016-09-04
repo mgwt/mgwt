@@ -1,0 +1,48 @@
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-ListBox;
+}
+
+@if (is("mgwt.formfactor", "desktop")) {
+  .mgwt-ListBox {
+    cursor: pointer;
+  }
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-ListBox {
+    display: -webkit-box;
+    -webkit-appearance: none;
+    -webkit-user-select: text;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-ListBox {
+    display: -ms-flexbox;
+    -ms-user-select: text;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-ListBox {
+    display: -moz-box;
+    -moz-appearance: none;
+    -moz-user-select: text;
+  }
+}
+
+.mgwt-ListBox {
+  color: #777;
+  border: 0;
+  font: normal 17px Helvetica;
+  padding: 0;
+  margin-left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+}

@@ -36,9 +36,9 @@ public class TabBarAndroidAppearance extends TabBarAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/tabbar/tabbar.css", "tabbar-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/tabbar/tabbar.gss", "tabbar-android.gss"})
     CssBar barCss();
-    @Source({"com/googlecode/mgwt/ui/client/widget/tabbar/tabbar-button.css", "tabbar-button-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/tabbar/tabbar-button.gss", "tabbar-button-android.gss"})
     CssButton css();
   }
 

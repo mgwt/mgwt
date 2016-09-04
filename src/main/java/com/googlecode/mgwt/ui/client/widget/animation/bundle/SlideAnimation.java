@@ -9,7 +9,7 @@ import com.googlecode.mgwt.ui.client.widget.animation.Animation;
 public class SlideAnimation extends AnimationBase {
 
   interface Bundle extends ClientBundle {
-    @Source({"slide.css"})
+    @Source({"slide.gss"})
     CSS css();
   }
 

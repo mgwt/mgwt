@@ -9,7 +9,7 @@ import com.googlecode.mgwt.ui.client.widget.animation.Animation;
 public class PopAnimation extends AnimationBase {
 
   interface Bundle extends ClientBundle {
-    @Source({"pop.css"})
+    @Source({"pop.gss"})
     CSS css();
   }
 

@@ -9,7 +9,7 @@ import com.googlecode.mgwt.ui.client.widget.animation.Animation;
 public class FadeAnimation extends AnimationBase {
 
   interface Bundle extends ClientBundle {
-    @Source({"fade.css"})
+    @Source({"fade.gss"})
     CSS css();
   }
 

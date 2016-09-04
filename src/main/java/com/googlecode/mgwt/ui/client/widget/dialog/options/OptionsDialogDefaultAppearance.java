@@ -28,7 +28,7 @@ public class OptionsDialogDefaultAppearance extends DialogOverlayDefaultAppearan
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"options-dialog.css"})
+    @Source({"options-dialog.gss"})
     OptionsDialogCss css();
   }
 

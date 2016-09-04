@@ -1,0 +1,15 @@
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-HeaderPanel;
+}
+
+.mgwt-HeaderPanel {
+  width: 100%;
+}
+
+.mgwt-HeaderPanel {
+  height: 40px;
+  min-height: 40px;
+  border-bottom: 1px solid #2d3642;
+  background: #e5e9e8;
+  color: #454545;
+}

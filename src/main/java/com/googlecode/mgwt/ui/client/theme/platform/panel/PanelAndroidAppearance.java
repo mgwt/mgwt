@@ -17,7 +17,7 @@ public class PanelAndroidAppearance extends PanelAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"panel-android.css"})
+    @Source({"panel-android.gss"})
     Css css();
   }
 

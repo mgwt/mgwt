@@ -1,0 +1,44 @@
+@def ANDROID_CHECK_CHECKED resourceUrl("inputCheckImage");
+@def ANDROID_CHECK_NOT_CHECKED resourceUrl("android_check_not_checked");
+
+.mgwt-RadioButton-input {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  background-image: ANDROID_CHECK_NOT_CHECKED;
+}
+
+.mgwt-RadioButton-input:CHECKED {
+  background-image: ANDROID_CHECK_CHECKED;
+  background-color: transparent;
+}
+
+.mgwt-RadioButton-input:FOCUS {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-RadioButton-input {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+  }
+
+  .mgwt-RadioButton-input:CHECKED {
+    -webkit-appearance: none;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-RadioButton-input {
+    -moz-appearance: none;
+    -moz-tap-highlight-color: rgba(255, 255, 255, 0);
+    -moz-focus-ring-color: rgba(0, 0, 0, 0);
+  }
+
+  .mgwt-RadioButton-input:CHECKED {
+    -moz-appearance: none;
+  }
+}

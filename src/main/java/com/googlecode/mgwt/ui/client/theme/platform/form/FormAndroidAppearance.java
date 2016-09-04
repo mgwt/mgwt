@@ -17,7 +17,7 @@ public class FormAndroidAppearance extends FormAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/form/form.css", "form-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/form/form.gss", "form-android.gss"})
     Css css();
   }
 

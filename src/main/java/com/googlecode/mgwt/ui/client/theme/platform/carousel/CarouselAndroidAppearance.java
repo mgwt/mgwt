@@ -30,7 +30,7 @@ public class CarouselAndroidAppearance extends CarouselAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/carousel/carousel.css", "carousel-android.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/carousel/carousel.gss", "carousel-android.gss"})
     Css css();
   }
 

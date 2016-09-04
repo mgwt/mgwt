@@ -34,7 +34,7 @@ public class DefaultSwipeMenuAppearance implements SwipeMenuAppearance {
 
     public static Resource INSTANCE = GWT.create(Resource.class);
 
-    @Source("swipe-menu.css")
+    @Source("swipe-menu.gss")
     public SwipeMenuCss css();
   }
 

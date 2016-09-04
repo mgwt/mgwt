@@ -1,0 +1,15 @@
+@def ICON_BACKGROUND_COLOR #0d66fb;
+@def ICON_BACKGROUND_COLOR_ACTIVE #b2d0f7;
+
+.mgwt-ImageButton {
+  color: #0c63fe;
+  background-color: #f2f2f2;
+  box-shadow: none;
+  border: none;
+}
+
+.mgwt-ImageButton-active {
+  box-shadow: none;
+  background-color: white;
+  color: ICON_BACKGROUND_COLOR_ACTIVE;
+}

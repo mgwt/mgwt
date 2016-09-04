@@ -1,0 +1,197 @@
+@def SEARCH_IMAGE resourceUrl("searchImage");
+@def CLEAR_IMAGE resourceUrl("searchClearImage");
+
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-SearchBox mgwt-SearchBox-round;
+  @external mgwt-SearchBox-input mgwt-SearchBox-clear;
+  @external mgwt-SearchBox-clear-active;
+  @external mgwt-SearchBox-icon;
+}
+
+@if (is("user.agent", "safari")) {
+  ::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+}
+
+.mgwt-SearchBox {
+  height: 44px;
+  position: relative;
+  background-size: 100% 44px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  min-width: 200px;
+}
+
+.mgwt-SearchBox-input {
+  border: 0;
+  font-size: 13px;
+  padding: 0;
+  position: absolute;
+  display: block;
+  top: 1px;
+  left: 25px;
+  right: 60px;
+  bottom: 1px;
+  outline: none;
+  width: calc(100% - 47px);
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-SearchBox-input {
+    width: -webkit-calc(100% - 47px);
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-SearchBox-input {
+    width: calc(100% - 47px);
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-SearchBox-input {
+    width: -moz-calc(100% - 47px);;
+  }
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-SearchBox-input {
+    -webkit-appearance: none;
+    -webkit-user-select: text;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-SearchBox-input {
+    -ms-user-select: text;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-SearchBox-input {
+    top: 5px;
+    -moz-appearance: none;
+    -moz-user-select: text;
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@if (is("user.agent", "ie9")) {
+  .mgwt-SearchBox-input {
+    top: 5px;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-SearchBox-input {
+    top: 5px;
+  }
+}
+
+.mgwt-SearchBox-clear-active {
+}
+
+.mgwt-SearchBox-round {
+  height: 24px;
+  display: block;
+  position: relative;
+  top: 7px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 16px;
+  border: 1px solid #9daca9;
+  background-color: #fff;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.23);
+  color: #454545;
+  border-radius: 16px;
+  /* @alternate */ background-color: white;
+}
+
+.mgwt-SearchBox-icon {
+  position: relative;
+  top: 7px;
+  left: 8px;
+  height: 16px;
+  width: 16px;
+  background-color: #78787e;
+}
+
+@if (is("user.agent", "safari")) {
+  @if (is("mgwt.density", "high")) {
+    .mgwt-SearchBox-icon {
+      -webkit-mask-size: 17px 17px;
+    }
+  }
+
+  @if (is("mgwt.density", "xhigh")) {
+    .mgwt-SearchBox-icon {
+      -webkit-mask-size: 12px 12px;
+    }
+  }
+
+  .mgwt-SearchBox-icon {
+    -webkit-mask-image: SEARCH_IMAGE;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  @if (eval('com.googlecode.mgwt.ui.client.MGWT.getOsDetection().isIEEdge()')) {
+    .mgwt-SearchBox-icon {
+      background-image: SEARCH_IMAGE;
+      background-repeat: no-repeat;
+      background-color: inherit;
+    }
+  }
+
+  .mgwt-SearchBox-clear {
+    -webkit-mask-image: CLEAR_IMAGE;
+    -webkit-mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-SearchBox-icon {
+    background-image: SEARCH_IMAGE;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 12px 12px;
+  }
+
+  .mgwt-SearchBox-clear {
+    background-image: CLEAR_IMAGE;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+.mgwt-SearchBox-clear {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  background-color: #78787e;
+}
+
+@if (is("user.agent", "safari")) {
+  @if (is("mgwt.density", "high")) {
+    .mgwt-SearchBox-clear {
+      -webkit-mask-size: 19px 19px;
+    }
+  }
+
+  @if (is("mgwt.density", "xhigh")) {
+    .mgwt-SearchBox-clear {
+      -webkit-mask-size: 14px 14px;
+    }
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-SearchBox-clear {
+    background-color: transparent;
+    background-size: 14px 14px;
+  }
+}

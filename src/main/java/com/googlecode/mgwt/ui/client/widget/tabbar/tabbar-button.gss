@@ -1,0 +1,73 @@
+@if (is("mgwt.css", "pretty")) {
+  @external mgwt-TabBar-Button mgwt-TabBar-Button-active mgwt-TabBar-Button-selected;
+  @external mgwt-TabBar-Button-icon mgwt-TabBar-Button-text;
+}
+
+@def BUTTON_BACKGROUND_COLOR #454545;
+@def BUTTON_BACKGROUND_SELECTED_COLOR #288ede;
+
+.mgwt-TabBar-Button-active {
+}
+
+@if (is("user.agent", "safari")) {
+  .mgwt-TabBar-Button {
+    display: -webkit-box;
+    /* @alternate */ display: -webkit-flex;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -webkit-appearance: none;
+  }
+}
+
+@if (is("user.agent", "ie10")) {
+  .mgwt-TabBar-Button {
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    -ms-flex: 1 1;
+  }
+}
+
+@if (is("user.agent", "gecko1_8")) {
+  .mgwt-TabBar-Button {
+    display: -moz-box;
+    -moz-flex-direction: column;
+    -moz-box-flex: 1;
+    -moz-appearance: none;
+  }
+}
+
+.mgwt-TabBar-Button {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 60px;
+  background-color: transparent;
+  height: 39px;
+  margin-top: 9px;
+}
+
+.mgwt-TabBar-Button-selected .mgwt-TabBar-Button-text {
+  color: BUTTON_BACKGROUND_COLOR;
+}
+
+.mgwt-TabBar-Button-selected .mgwt-TabBar-Button-icon {
+  background-color: BUTTON_BACKGROUND_SELECTED_COLOR;
+}
+
+.mgwt-TabBar-Button-text {
+  font-size: 9px;
+  color: #454545;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  top: 3px;
+}
+
+.mgwt-TabBar-Button-icon {
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+  background-color: BUTTON_BACKGROUND_COLOR;
+}

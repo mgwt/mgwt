@@ -17,7 +17,7 @@ public class WidgetListIOSAppearance extends WidgetListAbstractAppearance {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source({"com/googlecode/mgwt/ui/client/widget/list/widgetlist/widgetlist.css", "widgetlist-ios.css"})
+    @Source({"com/googlecode/mgwt/ui/client/widget/list/widgetlist/widgetlist.gss", "widgetlist-ios.gss"})
     Css css();
   }
 
